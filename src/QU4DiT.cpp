@@ -1,5 +1,6 @@
 #include "NonLinearInstruments.hpp"
 
+/* Quadratic Iterator module */
 
 struct QU4DiT : Module {
 	enum ParamIds {
@@ -21,7 +22,7 @@ struct QU4DiT : Module {
 	};
 
 	float phase = 0.0;
-	float blinkPhase = 0.0;
+	/*float blinkPhase = 0.0;*/
 
 	QU4DiT() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
 	void step() override;
@@ -81,7 +82,7 @@ QU4DiTWidget::QU4DiTWidget() {
 	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
     */
 	
-	addParam(createParam<RoundHugeBlackKnob>(Vec(17, 54), module, QU4DiT::C_PARAM, -3.0, 3.0, 0.0));
+	addParam(createParam<RoundHugeBlackKnob>(Vec(17, 53), module, QU4DiT::C_PARAM, -3.0, 3.0, 0.0));
 	addParam(createParam<RoundBlackKnob>(Vec(28, 150), module, QU4DiT::CMOD_DEPTH, -3.0, 3.0, 0.0));
 
 	addInput(createInput<PJ301MPort>(Vec(33, 220), module, QU4DiT::CMOD_INPUT));

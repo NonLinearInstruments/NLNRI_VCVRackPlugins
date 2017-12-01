@@ -17,7 +17,7 @@ include ../../plugin.mk
 
 
 # Convenience target for including files in the distributable release
-DIST_NAME = Template
+DIST_NAME = NonLinearInstruments
 .PHONY: dist
 dist: all
 ifndef VERSION
