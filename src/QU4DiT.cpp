@@ -3,15 +3,16 @@
 
 struct QU4DiT : Module {
 	enum ParamIds {
-		PITCH_PARAM,
+		C_PARAM,
+		CMOD_DEPTH,
 		NUM_PARAMS
 	};
 	enum InputIds {
-		PITCH_INPUT,
+		CMOD_INPUT,
 		NUM_INPUTS
 	};
 	enum OutputIds {
-		SINE_OUTPUT,
+		XN_OUTPUT,
 		NUM_OUTPUTS
 	};
 	enum LightIds {
@@ -38,8 +39,8 @@ void QU4DiT::step() {
 	float deltaTime = 1.0 / engineGetSampleRate();
 
 	// Compute the frequency from the pitch parameter and input
-	float pitch = params[PITCH_PARAM].value;
-	pitch += inputs[PITCH_INPUT].value;
+	float pitch = params[C_PARAM].value;
+	pitch += inputs[CMOD_INPUT].value;
 	pitch = clampf(pitch, -4.0, 4.0);
 	float freq = 440.0 * powf(2.0, pitch);
 
@@ -50,7 +51,7 @@ void QU4DiT::step() {
 
 	// Compute the sine output
 	float sine = sinf(2 * M_PI * phase);
-	outputs[SINE_OUTPUT].value = 5.0 * sine;
+	outputs[XN_OUTPUT].value = 5.0 * sine;
 
 	// Blink light at 1Hz
 	blinkPhase += deltaTime;
@@ -74,16 +75,18 @@ QU4DiTWidget::QU4DiTWidget() {
 		addChild(panel);
 	}
 
-	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
+	/*addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
 	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
 	addChild(createScrew<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 	addChild(createScrew<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+    */
+	
+	addParam(createParam<RoundHugeBlackKnob>(Vec(17, 54), module, QU4DiT::C_PARAM, -3.0, 3.0, 0.0));
+	addParam(createParam<RoundBlackKnob>(Vec(28, 150), module, QU4DiT::CMOD_DEPTH, -3.0, 3.0, 0.0));
 
-	addParam(createParam<Davies1900hBlackKnob>(Vec(28, 87), module, QU4DiT::PITCH_PARAM, -3.0, 3.0, 0.0));
+	addInput(createInput<PJ301MPort>(Vec(33, 220), module, QU4DiT::CMOD_INPUT));
 
-	addInput(createInput<PJ301MPort>(Vec(33, 186), module, QU4DiT::PITCH_INPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(33, 300), module, QU4DiT::XN_OUTPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(33, 275), module, QU4DiT::SINE_OUTPUT));
-
-	addChild(createLight<MediumLight<RedLight>>(Vec(41, 59), module, QU4DiT::BLINK_LIGHT));
+	/*addChild(createLight<MediumLight<RedLight>>(Vec(41, 35 ), module, QU4DiT::BLINK_LIGHT));*/
 }
