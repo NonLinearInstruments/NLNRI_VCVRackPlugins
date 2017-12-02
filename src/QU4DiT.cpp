@@ -1,7 +1,7 @@
 #include "NonLinearInstruments.hpp"
 
 /* 
-This instruments explores the Quadratic iterator, also known as Logistic map 
+This instrument explores the Quadratic iterator, also known as Logistic map 
 (after the Verhulst's logistic equation). 
 More precisely, the chaotic range arising for parameter values above roughly 3.5
 https://en.wikipedia.org/wiki/Logistic_map
@@ -28,7 +28,6 @@ struct QU4DiT : Module {
 		NUM_LIGHTS
 	};
 
-	/* Init variables */
 	
 	float ax = 0.1;
 	float ay = 0.1;
@@ -38,9 +37,14 @@ struct QU4DiT : Module {
 	float Coffset = 0.0;
 	float x_out = 0.0;
 	float y_out = 0.0;
+	float C_max = 3.9;
+	float C_min = 3.56;
+	float Cof_range = 3.999999 - C_max;
+	float C_range = C_max - C_min;
+	float C_value = C_min;
+	float Cmod_value = 0.0;
 
-	/* END Init variables */
-
+	
 	QU4DiT() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
 	void step() override;
 
@@ -53,16 +57,19 @@ struct QU4DiT : Module {
 
 void QU4DiT::step() {
 	
+	Cmod_value = 2 * ( (clampf ( inputs[CMOD_INPUT].value / 10.f , 0.f, 1.f ) * clampf ( params[CMOD_DEPTH].value, 0.f, 1.f ) ) - 0.5f);
 	
-	Cparam = params[C_PARAM].value;
+	C_value =  clampf ( params[C_PARAM].value, 0.f, 1.f ) + Cmod_value;
 	
-	Coffset = params[C_OFFSET].value * 0.199;
+	Cparam = clampf ( C_min + C_range * C_value, C_min , C_max );
+						
+	Coffset = Cof_range * clampf ( params[C_OFFSET].value, 0.f, 1.f );
 	
-	axnew = Cparam * ax * ( 1 - ax );
-	aynew = ( Cparam + Coffset ) * ay * ( 1 - ay );
+	axnew = Cparam * ax * ( 1.f - ax );
+	aynew = ( Cparam + Coffset ) * ay * ( 1.f - ay );
 	
-	x_out = axnew * 5.;
-	y_out = aynew * 5.;
+	x_out = axnew * 5.f;
+	y_out = aynew * 5.f;
 
 	outputs[XN_OUTPUT].value = isfinite(x_out) ? x_out : 0.f;
 	outputs[YN_OUTPUT].value = isfinite(y_out) ? y_out : 0.f;
@@ -86,9 +93,9 @@ QU4DiTWidget::QU4DiTWidget() {
 	}
 
 	
-	addParam(createParam<RoundHugeBlackKnob>(Vec(17, 40), module, QU4DiT::C_PARAM, 3.57, 3.8, 3.57));
+	addParam(createParam<RoundHugeBlackKnob>(Vec(17, 40), module, QU4DiT::C_PARAM, 0.0, 1.0, 0.5 ));
 	addParam(createParam<RoundBlackKnob>(Vec(28, 125), module, QU4DiT::C_OFFSET, 0.0, 1.0, 0.0));
-	addParam(createParam<RoundBlackKnob>(Vec(28, 190), module, QU4DiT::CMOD_DEPTH, -3.0, 3.0, 0.0));
+	addParam(createParam<RoundBlackKnob>(Vec(28, 190), module, QU4DiT::CMOD_DEPTH, 0.0, 1.0, 0.0));
 	
 	addInput(createInput<PJ301MPort>(Vec(33, 250), module, QU4DiT::CMOD_INPUT));
 
