@@ -43,6 +43,7 @@ struct QU4DiT : Module {
 	float C_range = C_max - C_min;
 	float C_value = C_min;
 	float Cmod_value = 0.0;
+	float Cmod_depth_param = 0.0;
 
 	
 	QU4DiT() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
@@ -57,11 +58,13 @@ struct QU4DiT : Module {
 
 void QU4DiT::step() {
 	
-	Cmod_value = 2 * ( (clampf ( inputs[CMOD_INPUT].value / 10.f , 0.f, 1.f ) * clampf ( params[CMOD_DEPTH].value, 0.f, 1.f ) ) - 0.5f);
+	Cmod_depth_param = clampf ( params[CMOD_DEPTH].value, 0.f, 1.f );
+	Cmod_depth_param *= Cmod_depth_param;
+	Cmod_value = clampf ( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ) * Cmod_depth_param;
+	C_value =  C_range * clampf ( params[C_PARAM].value, 0.f, 1.f );
+	Cmod_value = Cmod_value * (C_max - C_value);
 	
-	C_value =  clampf ( params[C_PARAM].value, 0.f, 1.f ) + Cmod_value;
-	
-	Cparam = clampf ( C_min + C_range * C_value, C_min , C_max );
+	Cparam = clampf ( C_min + C_value + Cmod_value, C_min , C_max );
 						
 	Coffset = Cof_range * clampf ( params[C_OFFSET].value, 0.f, 1.f );
 	
