@@ -71,8 +71,8 @@ void QU4DiT::step() {
 	x_out = axnew * 5.f;
 	y_out = aynew * 5.f;
 
-	outputs[XN_OUTPUT].value = isfinite(x_out) ? x_out : 0.f;
-	outputs[YN_OUTPUT].value = isfinite(y_out) ? y_out : 0.f;
+	outputs[XN_OUTPUT].value = std::isfinite(x_out) ? x_out : 0.f;
+	outputs[YN_OUTPUT].value = std::isfinite(y_out) ? y_out : 0.f;
 
 	ax = axnew;
 	ay = aynew;
