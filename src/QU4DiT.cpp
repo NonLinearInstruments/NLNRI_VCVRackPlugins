@@ -5,6 +5,13 @@ This instrument explores the Quadratic iterator, also known as Logistic map
 (after the Verhulst's logistic equation). 
 More precisely, the chaotic range arising for parameter values above roughly 3.5
 https://en.wikipedia.org/wiki/Logistic_map
+
+Panel .svg and logo by Alfredo Santamaría http://www.hakken.com.mx/gui.php
+
+Changelog:
+
+v0.5.0 : first release
+v0.5.1 : Changed SVG panel - minor code cleansing
 */
 
 struct QU4DiT : Module {
@@ -39,7 +46,7 @@ struct QU4DiT : Module {
 	float y_out = 0.0;
 	float C_max = 3.9;
 	float C_min = 3.56;
-	float Cof_range = 3.999999 - C_max;
+	float Off_range = 3.999999 - C_max;
 	float C_range = C_max - C_min;
 	float C_value = C_min;
 	float Cmod_value = 0.0;
@@ -66,7 +73,7 @@ void QU4DiT::step() {
 	
 	Cparam = clampf ( C_min + C_value + Cmod_value, C_min , C_max );
 						
-	Coffset = Cof_range * clampf ( params[C_OFFSET].value, 0.f, 1.f );
+	Coffset = Off_range * clampf ( params[C_OFFSET].value, 0.f, 1.f );
 	
 	axnew = Cparam * ax * ( 1.f - ax );
 	aynew = ( Cparam + Coffset ) * ay * ( 1.f - ay );
