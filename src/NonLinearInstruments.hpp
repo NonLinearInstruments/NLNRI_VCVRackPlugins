@@ -11,3 +11,4 @@ extern Plugin *plugin;
 ////////////////////
 
 struct QU4DiTWidget : ModuleWidget { QU4DiTWidget(); };
+struct QU4DiTplusWidget : ModuleWidget { QU4DiTplusWidget(); };

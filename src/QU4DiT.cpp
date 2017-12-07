@@ -9,9 +9,9 @@ https://en.wikipedia.org/wiki/Logistic_map
 Panel .svg and logo by Alfredo Santamaría http://www.hakken.com.mx/gui.php
 
 Changelog:
-
 v0.5.0 : first release
 v0.5.1 : Changed SVG panel - minor code cleansing
+
 */
 
 struct QU4DiT : Module {
@@ -101,11 +101,10 @@ QU4DiTWidget::QU4DiTWidget() {
 		panel->setBackground(SVG::load(assetPlugin(plugin, "res/QU4DiT.svg")));
 		addChild(panel);
 	}
-
 	
-	addParam(createParam<RoundHugeBlackKnob>(Vec(17, 40), module, QU4DiT::C_PARAM, 0.0, 1.0, 0.5 ));
-	addParam(createParam<RoundBlackKnob>(Vec(28, 125), module, QU4DiT::C_OFFSET, 0.0, 1.0, 0.0));
-	addParam(createParam<RoundBlackKnob>(Vec(28, 190), module, QU4DiT::CMOD_DEPTH, 0.0, 1.0, 0.0));
+	addParam(createParam<Davies1900hLargeBlackKnob>(Vec(17, 40), module, QU4DiT::C_PARAM, 0.0, 1.0, 0.5 ));
+	addParam(createParam<Davies1900hBlackKnob>(Vec(28, 125), module, QU4DiT::C_OFFSET, 0.0, 1.0, 0.0));
+	addParam(createParam<Davies1900hBlackKnob>(Vec(28, 190), module, QU4DiT::CMOD_DEPTH, 0.0, 1.0, 0.0));
 	
 	addInput(createInput<PJ301MPort>(Vec(33, 250), module, QU4DiT::CMOD_INPUT));
 
