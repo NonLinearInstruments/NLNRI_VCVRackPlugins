@@ -17,17 +17,21 @@ v0.5.1 : first release
 struct QU4DiTplus : Module {
 	enum ParamIds {
 		C_PARAM,
+		C_PARAM_FINE,
 		CMOD_DEPTH,
-		C_OFFSET,
+		CFINE_MOD_DEPTH,
+		DOWN_SAMPLE,
+		//C_OFFSET,
 		NUM_PARAMS
 	};
 	enum InputIds {
 		CMOD_INPUT,
+		CMOD_FINE_INPUT,
 		NUM_INPUTS
 	};
 	enum OutputIds {
 		XN_OUTPUT,
-		YN_OUTPUT,
+		//YN_OUTPUT,
 		NUM_OUTPUTS
 	};
 	enum LightIds {
@@ -36,6 +40,8 @@ struct QU4DiTplus : Module {
 	};
 	
 	logisticMap QUADinstrument;
+	int downsample = 1;
+	int samplecounter = 1;
 	
 	QU4DiTplus() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
 	void step() override;
@@ -49,22 +55,28 @@ struct QU4DiTplus : Module {
 
 void QU4DiTplus::step() {
 
+	//downsample = (int) pow ( fmod( clampf( params[DOWN_SAMPLE].value, 0.f, 1.f ) * 8. , 2 ) , 2);
+	
+	if ( samplecounter >= downsample || samplecounter == 1){
 	QUADinstrument.setCmod_depth_param ( clampf( params[CMOD_DEPTH].value, 0.f, 1.f ));
 	QUADinstrument.setCmod_value ( clampf( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ));
-	QUADinstrument.setC_value (clampf ( params[C_PARAM].value, 0.f, 1.f ));
-	
-
+	QUADinstrument.setCvalue (clampf( params[C_PARAM].value, 0.f, 1.f ));
+	QUADinstrument.setCvalueFine ( clampf( params[C_PARAM_FINE].value, -1.0f, 1.f));
 	QUADinstrument.process();
+	if(samplecounter >= downsample){samplecounter = 0;};
+	};
+		
 	outputs[XN_OUTPUT].value = QUADinstrument.getAudio();
-	outputs[YN_OUTPUT].value = QUADinstrument.getAudio();
 	
+	samplecounter += 1;
+	downsample = (int) ( 16. * clampf( params[DOWN_SAMPLE].value, 0.f, 1.f ));
+		
 }
 
 
 QU4DiTplusWidget::QU4DiTplusWidget() {
 	QU4DiTplus *module = new QU4DiTplus();
 	setModule(module);
-	//box.size = Vec( 6 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 	box.size = Vec( 150, 380);
 
 	{
@@ -74,13 +86,17 @@ QU4DiTplusWidget::QU4DiTplusWidget() {
 		addChild(panel);
 	}
 	
-	addParam(createParam<Davies1900hLargeBlackKnob>(Vec(17, 40), module, QU4DiTplus::C_PARAM, 0.0, 1.0, 0.5 ));
-	addParam(createParam<Davies1900hBlackKnob>(Vec(28, 125), module, QU4DiTplus::C_OFFSET, 0.0, 1.0, 0.0));
-	addParam(createParam<Davies1900hBlackKnob>(Vec(28, 190), module, QU4DiTplus::CMOD_DEPTH, 0.0, 1.0, 0.0));
+	addParam(createParam<Davies1900hLargeBlackKnob>(Vec(16, 47), module, QU4DiTplus::C_PARAM, 0.0, 1.0, 0.5 ));
+	addParam(createParam<Davies1900hLargeBlackKnob>(Vec(83, 47), module, QU4DiTplus::C_PARAM_FINE, -1.0, 1.0, 0.0 ));
+	addParam(createParam<Davies1900hBlackKnob>(Vec(16, 225), module, QU4DiTplus::CMOD_DEPTH, 0.0, 1.0, 0.0));
+	addParam(createParam<Davies1900hLargeBlackKnob>(Vec(60, 120), module, QU4DiTplus::DOWN_SAMPLE, 0.0, 1.0, 0.0));
 	
-	addInput(createInput<PJ301MPort>(Vec(33, 250), module, QU4DiTplus::CMOD_INPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(16, 328), module, QU4DiTplus::XN_OUTPUT));
+	
+	addInput(createInput<PJ301MPort>(Vec(16, 275), module, QU4DiTplus::CMOD_INPUT));
+	
+	addInput(createInput<PJ301MPort>(Vec(52, 275), module, QU4DiTplus::CMOD_FINE_INPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(46, 310), module, QU4DiTplus::XN_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(80, 310), module, QU4DiTplus::YN_OUTPUT));
+//	addOutput(createOutput<PJ301MPort>(Vec(52, 328), module, QU4DiTplus::YN_OUTPUT));
 
 }

@@ -12,40 +12,53 @@ struct logisticMap {
 	float axnew = 0.0;
 	float Cparam = 3.57;
 	float x_out = 0.0;
-	float C_max = 3.999999;
-	float C_min = 3.569959;
-	float C_range = C_max - C_min;
-	float C_value = C_min;
-	float Cmod_value = 0.0;
-	float Cmod_depth_param = 0.0;
+	float Cmax = 3.998000;
+	//float Cmin = 3.569959;
+	float Cmin = 3.870000;
+	float Crange = Cmax - Cmin;
+	float CrangeFine = 0.001999;
+	float Cvalue = Cmin;
+	float CvalueFine = 0.0;
+	float CmodValue = 0.0;
+	float CmodDepthParam = 0.0;
 	float output = 0.0;
 	
 	
 	void setCmod_depth_param(float _value){
-	Cmod_depth_param = _value;
-	Cmod_depth_param *= Cmod_depth_param;
+	CmodDepthParam = _value / 10.;
+	CmodDepthParam *= CmodDepthParam;;
 	}
+	
 	
 	void setCmod_value(float _value){
-	Cmod_value = _value * Cmod_depth_param;
+	CmodValue = _value * CmodDepthParam;
 	}
 
-	void setC_value(float _value){
-	C_value = _value * C_range;
+
+	void setCvalue(float _value){
+	Cvalue = _value * Crange;
 	}
+
+	
+	void setCvalueFine(float _value){
+	CvalueFine = _value * CrangeFine;
+	}
+
 
 	void process (){
-	Cmod_value = Cmod_value * (C_max - C_value);
-	Cparam = clampf ( C_min + C_value + Cmod_value, C_min , C_max );
+	CmodValue = CmodValue * (Cmax - Cvalue);
+	Cparam = clampf ( Cmin + Cvalue + CvalueFine + CmodValue, Cmin , Cmax );
 	axnew = Cparam * ax * ( 1.f - ax );
 	output = std::isfinite( axnew ) ? 5. * axnew : 0.f;
-	ax = axnew;
-	
+	ax = axnew;	
 	}
+
 
 	float getAudio () {
 	return output;
 	}
+
+
 };
 
 }; // namespace rack
