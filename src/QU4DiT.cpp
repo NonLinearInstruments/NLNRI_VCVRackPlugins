@@ -8,10 +8,6 @@ https://en.wikipedia.org/wiki/Logistic_map
 
 Panel .svg and logo by Alfredo Santamaría http://www.hakken.com.mx/gui.php
 
-Changelog:
-v0.5.0 : first release
-v0.5.1 : Changed SVG panel - minor code cleansing
-
 */
 
 struct QU4DiT : Module {
