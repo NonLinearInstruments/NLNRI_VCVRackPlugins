@@ -14,7 +14,7 @@
    viewBox="0 0 23.812501 100.54167"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="QU4DiT.svg">
   <defs
      id="defs2">
@@ -80,7 +80,7 @@
      inkscape:cx="-96.023086"
      inkscape:cy="190.00001"
      inkscape:document-units="mm"
-     inkscape:current-layer="text881"
+     inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:snap-bbox="true"
@@ -88,9 +88,9 @@
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="true"
      inkscape:window-width="1637"
-     inkscape:window-height="1174"
-     inkscape:window-x="45"
-     inkscape:window-y="49"
+     inkscape:window-height="1151"
+     inkscape:window-x="367"
+     inkscape:window-y="23"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -151,7 +151,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="translate(3.8265842e-8,-1.2097583e-6)"
+       transform="translate(3.8265842e-8,-12.700003)"
        aria-label="offset"
        style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:Avenir;-inkscape-font-specification:'Avenir, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        id="text956-1">
@@ -187,7 +187,7 @@
          id="path1139" />
     </g>
     <g
-       transform="translate(3.8265842e-8,-1.2097583e-6)"
+       transform="translate(3.8265842e-8,-12.170836)"
        aria-label="cv - C"
        style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:Avenir;-inkscape-font-specification:'Avenir, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#202020;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        id="text956-1-0">
@@ -208,7 +208,7 @@
          id="path1148" />
     </g>
     <g
-       transform="translate(3.8265842e-8,-1.2097583e-6)"
+       transform="translate(3.8265842e-8,-8.4666679)"
        aria-label="cv"
        style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:Avenir;-inkscape-font-specification:'Avenir, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        id="text956-1-0-2">
@@ -347,7 +347,7 @@
        aria-label="chaos"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.17499995px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        id="text2415"
-       transform="translate(3.8265842e-8,-0.52916788)">
+       transform="translate(3.8265842e-8,-17.462506)">
       <path
          d="m 8.3994874,225.37993 v 0.45268 q -0.1131714,-0.0775 -0.2278931,-0.11472 -0.1131714,-0.0372 -0.2356445,-0.0372 -0.232544,0 -0.3627686,0.13642 -0.1286743,0.13488 -0.1286743,0.37827 0,0.2434 0.1286743,0.37982 0.1302246,0.13488 0.3627686,0.13488 0.1302246,0 0.2464965,-0.0388 0.1178223,-0.0388 0.2170411,-0.11472 v 0.45424 q -0.1302246,0.0481 -0.2651001,0.0713 -0.1333252,0.0248 -0.2682007,0.0248 -0.4697388,0 -0.7348389,-0.24029 -0.2651001,-0.24185 -0.2651001,-0.67128 0,-0.42943 0.2651001,-0.66972 0.2651001,-0.24185 0.7348389,-0.24185 0.1364258,0 0.2682007,0.0248 0.1333252,0.0233 0.2651001,0.0713 z"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.17499995px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke-width:0.26458332"
@@ -460,7 +460,7 @@
       </g>
     </g>
     <g
-       transform="matrix(0.26458333,0,0,0.26458333,-45.908404,196.17785)"
+       transform="matrix(0.26458333,0,0,0.26458333,-45.908404,184.00694)"
        id="g4">
       <path
          inkscape:connector-curvature="0"
