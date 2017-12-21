@@ -17,7 +17,7 @@ include ../../plugin.mk
 
 # Convenience target for including files in the distributable release
 DIST_NAME = NonLinearInstruments
-VERSION = 0.5.0
+VERSION = 0.5.1
 .PHONY: dist
 dist: all
 ifndef VERSION
