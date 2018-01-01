@@ -63,9 +63,9 @@ void QU4DiT::step() {
 	
 	CmodDepthParam = clampf ( params[CMOD_DEPTH].value, 0.f, 1.f );
 	CmodDepthParam *= CmodDepthParam;
-	CmodValue = clampf ( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ) * CmodDepthParam;
+	CmodValue = clampf ( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ) * CmodDepthParam * .25f;
 	Cvalue =  C_range * clampf ( params[C_PARAM].value, 0.f, 1.f );
-	CmodValue = CmodValue * (Cmax - Cvalue);
+	//CmodValue = CmodValue * (Cmax - Cvalue);
 	
 	Cparam = clampf ( Cmin + Cvalue + CmodValue, Cmin , Cmax );
 						
@@ -74,8 +74,8 @@ void QU4DiT::step() {
 	axnew = Cparam * ax * ( 1.f - ax );
 	aynew = ( Cparam + Coffset ) * ay * ( 1.f - ay );
 	
-	Xout = axnew * 5.f;
-	y_out = aynew * 5.f;
+	Xout = axnew * 10.f - 5.f;
+	y_out = aynew * 10.f - 5.f;
 
 	outputs[XN_OUTPUT].value = std::isfinite(Xout) ? Xout : 0.f;
 	outputs[YN_OUTPUT].value = std::isfinite(y_out) ? y_out : 0.f;
