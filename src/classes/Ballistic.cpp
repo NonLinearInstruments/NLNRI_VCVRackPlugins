@@ -10,7 +10,7 @@ struct Ballistic {
 
 	// newtonian
 	float impulse = 10.f;
-	float gravity = 9.8f;
+	float gravity = 9.8f; // g
 	float angle = 45.f;
 	float zenith = 1.f / (pow(impulse, 2) / (2.f * gravity));
 	float bounce = 0.000001f;
@@ -58,8 +58,8 @@ struct Ballistic {
 			// avoid very small impulses. 
 			impulse = 0.01f + 100.f * pow ( clampf( _impulse, 0.f, 1.f ) ,2) ;
 			
-			// avoid zero gravity.
-			gravity = 0.01f + 100.f * clampf( _gravity, 0.f, 1.f );
+			// avoid zero gravity. Max. 10g
+			gravity = 0.01f + 98.f * clampf( _gravity, 0.f, 1.f );
 			
 			// use a log scale
 			bounce = ( 6.f + log10( clampf( _bounce, 0.000001f, 0.99f))) / 6.f;
