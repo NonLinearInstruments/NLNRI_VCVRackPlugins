@@ -1,7 +1,6 @@
 #include "NonLinearInstruments.hpp"
 #include "classes/Ballistic.cpp"
 
-
 struct BallisticENV : Module {
 	enum ParamIds {
 		IMPULSE_PARAM,
@@ -49,23 +48,16 @@ struct BallisticENV : Module {
 };
 
 
-void BallisticENV::step() {
-		
-	parabola.setBounceOnOff( params[BOUNCE_ON_OFF].value );
-		
+void BallisticENV::step() {		
+	parabola.setBounceOnOff( params[BOUNCE_ON_OFF].value );		
 	parabola.setModeOsc( params[MODE_OSC].value );
-		
-	parabola.shoot(
-		params[SHOOT_PARAM].value   + inputs[TRIGGER_INPUT].value,
-		params[IMPULSE_PARAM].value + ( inputs[IMPULSE_MOD_PARAM].value * inputs[IMPULSE_INPUT].value ),
-		params[GRAVITY_PARAM].value + ( inputs[GRAVITY_MOD_PARAM].value * inputs[GRAVITY_INPUT].value ),
-		params[ANGLE_PARAM].value   + ( inputs[ANGLE_MOD_PARAM].value   * inputs[ANGLE_INPUT].value   ),
-		params[BOUNCE_PARAM].value
-		);
-			
+	parabola.setImpulse( params[IMPULSE_PARAM].value + params[IMPULSE_MOD_PARAM].value * inputs[IMPULSE_INPUT].value  );
+	parabola.setGravity( params[GRAVITY_PARAM].value + params[GRAVITY_MOD_PARAM].value * inputs[GRAVITY_INPUT].value  );
+	parabola.setAngle  ( params[ANGLE_PARAM].value   + params[ANGLE_MOD_PARAM].value   * inputs[ANGLE_INPUT].value    );
+	parabola.setBounce ( params[BOUNCE_PARAM].value  + params[BOUNCE_MOD_PARAM].value   * inputs[BOUNCE_INPUT].value   );
+	parabola.shoot( params[SHOOT_PARAM].value   + inputs[TRIGGER_INPUT].value );
 	outputs[X_OUTPUT].value = parabola.getAudio();
 	outputs[C_OUTPUT].value = parabola.getControl();
-	
 }
 
 
