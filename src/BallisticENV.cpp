@@ -58,6 +58,7 @@ void BallisticENV::step() {
 	parabola.shoot( params[SHOOT_PARAM].value   + inputs[TRIGGER_INPUT].value );
 	outputs[X_OUTPUT].value = parabola.getAudio();
 	outputs[C_OUTPUT].value = parabola.getControl();
+	outputs[ZERO_TRIG_OUTPUT].value = parabola.getZeroTrigger();
 }
 
 
@@ -99,7 +100,7 @@ BallisticENVWidget::BallisticENVWidget() {
 	
 	addOutput(createOutput<PJ301MPort>(Vec(10, 318), module, BallisticENV::X_OUTPUT));
 	addOutput(createOutput<PJ301MPort>(Vec(45, 318), module, BallisticENV::C_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(80, 318), module, BallisticENV::TOP_TRIG_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(115,318), module, BallisticENV::ZERO_TRIG_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(80, 318), module, BallisticENV::ZERO_TRIG_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(115,318), module, BallisticENV::TOP_TRIG_OUTPUT));
 	
 }

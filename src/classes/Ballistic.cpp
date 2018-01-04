@@ -3,6 +3,8 @@
 namespace rack {
 
 // a basic parabolic projectile motion
+// https://en.wikipedia.org/wiki/Projectile_motion
+
 struct Ballistic {
 
 	// newtonian
@@ -22,7 +24,7 @@ struct Ballistic {
 	float audioOut = 0.f;
 	float controlOut = 0.f;
 	float topTrigOut = 0.f;
-	float zeroTrigOut = 0.f;
+	PulseGenerator zeroTrigOut;
 	bool isRunning = false;
 	bool bounceOnOff = false;
 	bool isReBounding = false;
@@ -75,8 +77,7 @@ struct Ballistic {
 		
 	
 	//get parameter values and compute trajectory
-	void shoot (bool trigger){	
-		
+	void shoot (bool trigger){			
 		//get trigger
 		if ( trigger ){ 
 			isRunning = true; 
@@ -84,14 +85,17 @@ struct Ballistic {
 			reBoundCount = 0.f;
 			}
 		
-		if( isRunning ){					
+		if( isRunning ){						
 			// max. height
 			zenith = (pow(impulse, 2) / (2.f * gravity));
 			// integrate trajectory normalized to 1
 			yValue = ((impulse * sin( angle ) * phase) - (gravity * pow( phase, 2) * 0.5f ) ) / zenith;
-			phase += delta;
+			phase += delta;			
 			// touch the ground 
 			if( yValue < 0.f ){ 
+				//
+				zeroTrigOut.trigger(1e-3);	
+				// check bounce mode
 				if ( bounceOnOff ){
 				yValue =  0.f;
 				phase = 0.f;
@@ -127,6 +131,11 @@ struct Ballistic {
 	// retrieve control signal
 	float getControl () {
 		return std::isfinite( controlOut ) ? controlOut : 0.f;
+	}
+	
+	// retrieve zero trigger
+	float getZeroTrigger (){
+		return ( 10.f * (float) zeroTrigOut.process(1.0 / engineGetSampleRate()) );
 	}
 };
 
