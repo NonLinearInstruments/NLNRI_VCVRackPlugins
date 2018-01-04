@@ -7,7 +7,6 @@ More precisely, the chaotic range arising for parameter values above roughly 3.5
 https://en.wikipedia.org/wiki/Logistic_map
 
 Panel .svg and logo by Alfredo Santamaría http://www.hakken.com.mx/gui.php
-
 */
 
 struct QU4DiT : Module {
@@ -31,7 +30,6 @@ struct QU4DiT : Module {
 		NUM_LIGHTS
 	};
 
-	
 	float ax = 0.1;
 	float ay = 0.1;
 	float axnew = 0.0;
@@ -48,7 +46,6 @@ struct QU4DiT : Module {
 	float CmodValue = 0.0;
 	float CmodDepthParam = 0.0;
 
-	
 	QU4DiT() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
 	void step() override;
 
@@ -60,31 +57,20 @@ struct QU4DiT : Module {
 
 
 void QU4DiT::step() {
-	
 	CmodDepthParam = clampf ( params[CMOD_DEPTH].value, 0.f, 1.f );
-	CmodDepthParam *= CmodDepthParam;
-	CmodValue = clampf ( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ) * CmodDepthParam * .25f;
+	CmodValue = clampf ( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ) * CmodDepthParam * .025f;
 	Cvalue =  C_range * clampf ( params[C_PARAM].value, 0.f, 1.f );
-	//CmodValue = CmodValue * (Cmax - Cvalue);
-	
 	Cparam = clampf ( Cmin + Cvalue + CmodValue, Cmin , Cmax );
-						
 	Coffset = Off_range * clampf ( params[C_OFFSET].value, 0.f, 1.f );
-	
 	axnew = Cparam * ax * ( 1.f - ax );
 	aynew = ( Cparam + Coffset ) * ay * ( 1.f - ay );
-	
 	Xout = axnew * 10.f - 5.f;
 	y_out = aynew * 10.f - 5.f;
-
 	outputs[XN_OUTPUT].value = std::isfinite(Xout) ? Xout : 0.f;
 	outputs[YN_OUTPUT].value = std::isfinite(y_out) ? y_out : 0.f;
-
 	ax = axnew;
 	ay = aynew;
-	
 }
-
 
 QU4DiTWidget::QU4DiTWidget() {
 	QU4DiT *module = new QU4DiT();
