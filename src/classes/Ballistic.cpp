@@ -22,23 +22,20 @@ struct Ballistic {
 	// signal
 	float yValue = 0.f;
 	float audioOut = 0.f;
+	float controlValue = 0.f;
 	float controlOut = 0.f;
-	float topTrigOut = 0.f;
 	PulseGenerator zeroTrigOut;
+	float zeroTrigSignal = 0.f;
+	//float triggerLength = engineGetSampleRate()/1000.f;
+	float triggerLength = 10e-3;
 	bool isRunning = false;
 	bool bounceOnOff = false;
 	bool isReBounding = false;
 	int reBoundCount = 0;
-	bool modeOsc = false;
 	
 	// get switches from panel
-	
 	void setBounceOnOff ( bool _bounceOnOff ){
 		bounceOnOff = _bounceOnOff;
-	}
-	
-	void setModeOsc( bool _modeOsc ){
-		modeOsc = _modeOsc;
 	}
 	
 	//get parameters from panel
@@ -60,10 +57,10 @@ struct Ballistic {
 	
 	void setAngle  ( float _angle ){
 		if(isRunning){
-			// avoid shoot at 0º. max angle slightly less than 90ª
+			// avoid shoot at 0º. max angle slightly less than 90º
 			// angle in degrees ( parameter must be 0. ~ 1. )	
 			if(isReBounding){
-				angle = radFactor *  ( 0.001f + ( 89.998 * clampf( _angle, 0.f, 1.f) * pow(bounce,(float)reBoundCount) ));
+				angle = radFactor *  ( 0.001f + ( 89.998 * clampf( _angle, 0.f, 1.f) * pow(bounce,(float)reBoundCount) )); //radical !!
 				} else {
 				angle = radFactor *  ( 0.001f + ( 89.998 * clampf( _angle, 0.f, 1.f) ));
 				}
@@ -77,50 +74,74 @@ struct Ballistic {
 		
 	
 	//get parameter values and compute trajectory
-	void shoot (bool trigger){			
+	void shoot (bool trigger){	
+		//printf("%i \t", isRunning);		
+		
 		//get trigger
 		if ( trigger ){ 
 			isRunning = true; 
 			isReBounding = false;
 			reBoundCount = 0.f;
+			// bridge zer trigger to received trigger
+			zeroTrigOut.trigger(triggerLength);
 			}
 		
 		if( isRunning ){						
 			// max. height
 			zenith = (pow(impulse, 2) / (2.f * gravity));
 			// integrate trajectory normalized to 1
-			yValue = ((impulse * sin( angle ) * phase) - (gravity * pow( phase, 2) * 0.5f ) ) / zenith;
-			phase += delta;			
+			yValue = ((impulse * sin( angle ) * phase) - (gravity * pow( phase, 2) * 0.5f )) / zenith;
+			// copy signal to CV
+			controlValue = yValue;
+			// integration step
+			phase += delta;		
+						
 			// touch the ground 
 			if( yValue < 0.f ){ 
-				//
-				zeroTrigOut.trigger(1e-3);	
+				
+				// launch "zero trigger" when trajectory's "y" crosses zero
+				zeroTrigOut.trigger(triggerLength);	
 				// check bounce mode
 				if ( bounceOnOff ){
-				yValue =  0.f;
+				yValue = controlValue = 0.f;
 				phase = 0.f;
 				isReBounding = true;
 				reBoundCount++;
+				//stop after an arbitrary number of rebounds
+				if( reBoundCount >= 16384 ){
+					isRunning = false;	
+					isReBounding = false;
+					reBoundCount = 0;
+					yValue = controlValue = 0.f;
+					}
+				
 				} else {
 				isRunning = false;	
 				isReBounding = false;
 				reBoundCount = 0;
-				yValue = 0.f;
+				yValue = controlValue = 0.f;
 				}
-			}
-			// if modeOsc is selected, switch signal sign for impair rebounds
-			if (isReBounding && modeOsc) {
-				if(reBoundCount % 2 != 0){
-					yValue *= -1.f;
-					}
-				}	
+			}			
+			
+			// if is rebounding, switch signal sign for impair rebounds
+			if (isReBounding && reBoundCount % 2 != 0) { yValue *= -1.f;}
+				
 		} else {
 			// not running ? silence...
-			yValue = audioOut = phase = reBoundCount = 0.f;
+			yValue 
+			= controlValue 
+			= controlOut 
+			= audioOut 
+			= phase 
+			= reBoundCount 
+			= zeroTrigSignal = 0.f;
 		}
 		// feed signals
 		audioOut =  5.f * yValue;
-		controlOut = 10.f * std::abs ( yValue ); 
+		controlOut = 10.f * controlValue; 
+		// prepare trigger signals
+		zeroTrigSignal = 10.f * (float) zeroTrigOut.process(1.0 / engineGetSampleRate());
+		
 	}
 
 	// retrieve audio signal
@@ -135,7 +156,7 @@ struct Ballistic {
 	
 	// retrieve zero trigger
 	float getZeroTrigger (){
-		return ( 10.f * (float) zeroTrigOut.process(1.0 / engineGetSampleRate()) );
+		return ( zeroTrigSignal );
 	}
 };
 

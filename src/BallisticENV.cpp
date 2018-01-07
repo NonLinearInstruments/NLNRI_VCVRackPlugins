@@ -13,7 +13,6 @@ struct BallisticENV : Module {
 		BOUNCE_PARAM,
 		BOUNCE_MOD_PARAM,
 		BOUNCE_ON_OFF,
-		MODE_OSC,
 		NUM_PARAMS
 	};
 	enum InputIds {
@@ -28,7 +27,6 @@ struct BallisticENV : Module {
 		X_OUTPUT,
 		C_OUTPUT,
 		ZERO_TRIG_OUTPUT,
-		TOP_TRIG_OUTPUT,
 		NUM_OUTPUTS
 	};
 	enum LightIds {
@@ -50,7 +48,6 @@ struct BallisticENV : Module {
 
 void BallisticENV::step() {		
 	parabola.setBounceOnOff( params[BOUNCE_ON_OFF].value );		
-	parabola.setModeOsc( params[MODE_OSC].value );
 	parabola.setImpulse( params[IMPULSE_PARAM].value + params[IMPULSE_MOD_PARAM].value * inputs[IMPULSE_INPUT].value  );
 	parabola.setGravity( params[GRAVITY_PARAM].value + params[GRAVITY_MOD_PARAM].value * inputs[GRAVITY_INPUT].value  );
 	parabola.setAngle  ( params[ANGLE_PARAM].value   + params[ANGLE_MOD_PARAM].value   * inputs[ANGLE_INPUT].value    );
@@ -65,7 +62,7 @@ void BallisticENV::step() {
 BallisticENVWidget::BallisticENVWidget() {
 	BallisticENV *module = new BallisticENV();
 	setModule(module);
-	box.size = Vec(10 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
+	box.size = Vec(8 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
 		SVGPanel *panel = new SVGPanel();
@@ -73,8 +70,6 @@ BallisticENVWidget::BallisticENVWidget() {
 		panel->setBackground(SVG::load(assetPlugin(plugin, "res/BallisticENV.svg")));
 		addChild(panel);
 	}
-	
-	addParam(createParam<CKSS>(Vec(124, 48), module, BallisticENV::MODE_OSC, 0.0, 1.0, 0.));
 	
 	addParam(createParam<Davies1900hBlackKnob>(Vec(78, 40), module, BallisticENV::IMPULSE_PARAM, 0.0, 1.0, 0.5 ));		
 	addParam(createParam<RoundSmallBlackKnob>(Vec(42, 46), module, BallisticENV::IMPULSE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
@@ -88,19 +83,19 @@ BallisticENVWidget::BallisticENVWidget() {
 	addParam(createParam<RoundSmallBlackKnob>(Vec(42, 156), module, BallisticENV::GRAVITY_MOD_PARAM, 0.0, 1.0, 0.0 ));		
 	addInput(createInput<PJ301MPort>(Vec(10, 160), module, BallisticENV::GRAVITY_INPUT)); // -5 ~ +5
 	
-	addParam(createParam<CKSS>(Vec(124, 212), module, BallisticENV::BOUNCE_ON_OFF, 0.0, 1.0, 1.0));
+	addParam(createParam<CKSS>(Vec(68, 192), module, BallisticENV::BOUNCE_ON_OFF, 0.0, 1.0, 1.0));
 	
-	addParam(createParam<Davies1900hBlackKnob>(Vec(78, 205), module, BallisticENV::BOUNCE_PARAM, 0.0, 1.0, 0.5));
-	addParam(createParam<RoundSmallBlackKnob>(Vec(42, 211), module, BallisticENV::BOUNCE_MOD_PARAM, 0.0, 1.0, 0.0 ));			
-	addInput(createInput<PJ301MPort>(Vec(10, 215), module, BallisticENV::BOUNCE_INPUT)); // -5 ~ +5
+	addParam(createParam<Davies1900hBlackKnob>(Vec(78, 216), module, BallisticENV::BOUNCE_PARAM, 0.0, 1.0, 0.5));
+	addParam(createParam<RoundSmallBlackKnob>(Vec(42, 218), module, BallisticENV::BOUNCE_MOD_PARAM, 0.0, 1.0, 0.0 ));			
+	addInput(createInput<PJ301MPort>(Vec(10, 222), module, BallisticENV::BOUNCE_INPUT)); // -5 ~ +5
 	
-	addParam(createParam<CKD6>(Vec(96, 260), module, BallisticENV::SHOOT_PARAM, 0.0, 5.0, 0.0));
-	addInput(createInput<PJ301MPort>(Vec(32, 262), module, BallisticENV::TRIGGER_INPUT));	
+	addParam(createParam<CKD6>(Vec(42, 262), module, BallisticENV::SHOOT_PARAM, 0.0, 5.0, 0.0));
+	addInput(createInput<PJ301MPort>(Vec(10, 264), module, BallisticENV::TRIGGER_INPUT));	
     
 	
-	addOutput(createOutput<PJ301MPort>(Vec(10, 318), module, BallisticENV::X_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(45, 318), module, BallisticENV::C_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(80, 318), module, BallisticENV::ZERO_TRIG_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(115,318), module, BallisticENV::TOP_TRIG_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(11, 320), module, BallisticENV::X_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(45, 320), module, BallisticENV::C_OUTPUT));
+	addOutput(createOutput<PJ301MPort>(Vec(80, 320), module, BallisticENV::ZERO_TRIG_OUTPUT));
+
 	
 }
