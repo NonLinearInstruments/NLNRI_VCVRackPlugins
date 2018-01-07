@@ -6,19 +6,16 @@ namespace rack {
 // https://en.wikipedia.org/wiki/Projectile_motion
 
 struct Ballistic {
-
 	// newtonian
 	float impulse = 10.f;
 	float gravity = 9.8f; // g
 	float angle = 45.f;
 	float zenith = 1.f / (pow(impulse, 2) / (2.f * gravity));
 	float bounce = 0.000001f;
-	
 	// integration
-	const float radFactor  = 3.141592653589793238462f / 180.f;
+	const float radFactor  = 3.141592f / 180.f;
 	float delta = 1.f / engineGetSampleRate();
 	float phase = 0.f;
-		
 	// signal
 	float yValue = 0.f;
 	float audioOut = 0.f;
@@ -26,27 +23,23 @@ struct Ballistic {
 	float controlOut = 0.f;
 	PulseGenerator zeroTrigOut;
 	float zeroTrigSignal = 0.f;
-	//float triggerLength = engineGetSampleRate()/1000.f;
+	// float triggerLength = engineGetSampleRate()/1000.f;
 	float triggerLength = 10e-3;
 	bool isRunning = false;
 	bool bounceOnOff = false;
 	bool isReBounding = false;
 	int reBoundCount = 0;
-	
 	// get switches from panel
 	void setBounceOnOff ( bool _bounceOnOff ){
 		bounceOnOff = _bounceOnOff;
-	}
-	
+	}	
 	//get parameters from panel
-	
 	void setImpulse( float _impulse ){
 		if(isRunning){
 			// avoid very small impulses. 
 			impulse = 0.01f + 100.f * pow ( clampf( _impulse, 0.f, 1.f ) ,2) ;
 		}
 	}
-	
 	void setGravity( float _gravity )
 	{
 		if(isRunning){
@@ -54,7 +47,6 @@ struct Ballistic {
 			gravity = 0.01f + 98.f * clampf( _gravity, 0.f, 1.f );
 			}
 	}	
-	
 	void setAngle  ( float _angle ){
 		if(isRunning){
 			// avoid shoot at 0º. max angle slightly less than 90º
@@ -66,18 +58,13 @@ struct Ballistic {
 				}
 			}
 	}
-	
 	void setBounce ( float _bounce){
 		// use a log scale
 		bounce = ( 6.f + log10( clampf( _bounce, 0.000001f, 0.99f))) / 6.f;
-	}
-		
-	
-	//get parameter values and compute trajectory
+	}	
+	// compute trajectory
 	void shoot (bool trigger){	
-		//printf("%i \t", isRunning);		
-		
-		//get trigger
+		// get trigger
 		if ( trigger ){ 
 			isRunning = true; 
 			isReBounding = false;
@@ -85,7 +72,7 @@ struct Ballistic {
 			// bridge zer trigger to received trigger
 			zeroTrigOut.trigger(triggerLength);
 			}
-		
+		// compute trajectory
 		if( isRunning ){						
 			// max. height
 			zenith = (pow(impulse, 2) / (2.f * gravity));
@@ -95,10 +82,8 @@ struct Ballistic {
 			controlValue = yValue;
 			// integration step
 			phase += delta;		
-						
 			// touch the ground 
-			if( yValue < 0.f ){ 
-				
+			if( yValue < 0.f ){ 		
 				// launch "zero trigger" when trajectory's "y" crosses zero
 				zeroTrigOut.trigger(triggerLength);	
 				// check bounce mode
@@ -114,7 +99,6 @@ struct Ballistic {
 					reBoundCount = 0;
 					yValue = controlValue = 0.f;
 					}
-				
 				} else {
 				isRunning = false;	
 				isReBounding = false;
@@ -122,10 +106,8 @@ struct Ballistic {
 				yValue = controlValue = 0.f;
 				}
 			}			
-			
 			// if is rebounding, switch signal sign for impair rebounds
 			if (isReBounding && reBoundCount % 2 != 0) { yValue *= -1.f;}
-				
 		} else {
 			// not running ? silence...
 			yValue 
@@ -141,19 +123,15 @@ struct Ballistic {
 		controlOut = 10.f * controlValue; 
 		// prepare trigger signals
 		zeroTrigSignal = 10.f * (float) zeroTrigOut.process(1.0 / engineGetSampleRate());
-		
 	}
-
 	// retrieve audio signal
 	float getAudio () {
 		return std::isfinite( audioOut ) ? audioOut : 0.f;
 	}
-	
 	// retrieve control signal
 	float getControl () {
 		return std::isfinite( controlOut ) ? controlOut : 0.f;
 	}
-	
 	// retrieve zero trigger
 	float getZeroTrigger (){
 		return ( zeroTrigSignal );
