@@ -1,5 +1,7 @@
 #include "NonLinearInstruments.hpp"
 #include "classes/Ballistic.cpp"
+#include "dsp/digital.hpp"
+
 
 struct BallisticENV : Module {
 	enum ParamIds {
@@ -45,7 +47,6 @@ struct BallisticENV : Module {
 	// - reset, randomize: implements special behavior when user clicks these from the context menu
 };
 
-
 void BallisticENV::step() {		
 	parabola.setBounceOnOff( params[BOUNCE_ON_OFF].value );		
 	parabola.setImpulse( params[IMPULSE_PARAM].value + params[IMPULSE_MOD_PARAM].value * inputs[IMPULSE_INPUT].value  );
@@ -71,28 +72,22 @@ BallisticENVWidget::BallisticENVWidget() {
 		addChild(panel);
 	}
 	
-	addParam(createParam<Davies1900hBlackKnob>(Vec(78, 40), module, BallisticENV::IMPULSE_PARAM, 0.0, 1.0, 0.5 ));		
-	addParam(createParam<RoundSmallBlackKnob>(Vec(42, 46), module, BallisticENV::IMPULSE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
+	
+	addParam(createParam<KorgMedGreyKnob>(Vec(75, 40), module, BallisticENV::IMPULSE_PARAM, 0.0, 1.0, 0.5 ));		
+	addParam(createParam<KorgSmallGreyKnob>(Vec(40, 48), module, BallisticENV::IMPULSE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
 	addInput(createInput<PJ301MPort>(Vec(10, 50), module, BallisticENV::IMPULSE_INPUT)); // -5 ~ +5
-	
-	addParam(createParam<Davies1900hBlackKnob>(Vec(78, 95), module, BallisticENV::ANGLE_PARAM, 0.0, 1.0, 1.0));
-	addParam(createParam<RoundSmallBlackKnob>(Vec(42, 101), module, BallisticENV::ANGLE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
+	addParam(createParam<KorgMedGreyKnob>(Vec(75, 95), module, BallisticENV::ANGLE_PARAM, 0.0, 1.0, 1.0));
+	addParam(createParam<KorgSmallGreyKnob>(Vec(40, 103), module, BallisticENV::ANGLE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
 	addInput(createInput<PJ301MPort>(Vec(10, 105), module, BallisticENV::ANGLE_INPUT)); // -5 ~ +5
-	
-	addParam(createParam<Davies1900hBlackKnob>(Vec(78, 150), module, BallisticENV::GRAVITY_PARAM, 0.0, 1.0, 0.5));
-	addParam(createParam<RoundSmallBlackKnob>(Vec(42, 156), module, BallisticENV::GRAVITY_MOD_PARAM, 0.0, 1.0, 0.0 ));		
+	addParam(createParam<KorgMedGreyKnob>(Vec(75, 150), module, BallisticENV::GRAVITY_PARAM, 0.0, 1.0, 0.5));
+	addParam(createParam<KorgSmallGreyKnob>(Vec(40, 158), module, BallisticENV::GRAVITY_MOD_PARAM, 0.0, 1.0, 0.0 ));	
 	addInput(createInput<PJ301MPort>(Vec(10, 160), module, BallisticENV::GRAVITY_INPUT)); // -5 ~ +5
-	
-	addParam(createParam<CKSS>(Vec(68, 192), module, BallisticENV::BOUNCE_ON_OFF, 0.0, 1.0, 1.0));
-	
-	addParam(createParam<Davies1900hBlackKnob>(Vec(78, 216), module, BallisticENV::BOUNCE_PARAM, 0.0, 1.0, 0.5));
-	addParam(createParam<RoundSmallBlackKnob>(Vec(42, 218), module, BallisticENV::BOUNCE_MOD_PARAM, 0.0, 1.0, 0.0 ));			
-	addInput(createInput<PJ301MPort>(Vec(10, 222), module, BallisticENV::BOUNCE_INPUT)); // -5 ~ +5
-	
+	addParam(createParam<KorgCKSS>(Vec(58, 192), module, BallisticENV::BOUNCE_ON_OFF, 0.0, 1.0, 1.0));
+	addParam(createParam<KorgMedGreyKnob>(Vec(75, 216), module, BallisticENV::BOUNCE_PARAM, 0.0, 1.0, 0.5));
+	addParam(createParam<KorgSmallGreyKnob>(Vec(40, 222), module, BallisticENV::BOUNCE_MOD_PARAM, 0.0, 1.0, 0.0 ));	
+	addInput(createInput<PJ301MPort>(Vec(10, 224), module, BallisticENV::BOUNCE_INPUT)); // -5 ~ +5
 	addParam(createParam<CKD6>(Vec(42, 262), module, BallisticENV::SHOOT_PARAM, 0.0, 5.0, 0.0));
 	addInput(createInput<PJ301MPort>(Vec(10, 264), module, BallisticENV::TRIGGER_INPUT));	
-    
-	
 	addOutput(createOutput<PJ301MPort>(Vec(11, 320), module, BallisticENV::X_OUTPUT));
 	addOutput(createOutput<PJ301MPort>(Vec(45, 320), module, BallisticENV::C_OUTPUT));
 	addOutput(createOutput<PJ301MPort>(Vec(80, 320), module, BallisticENV::ZERO_TRIG_OUTPUT));
