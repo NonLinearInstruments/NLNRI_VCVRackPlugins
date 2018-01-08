@@ -13,7 +13,7 @@ struct Ballistic {
 	float zenith = 1.f / (pow(impulse, 2) / (2.f * gravity));
 	float bounce = 0.000001f;
 	// integration
-	const float radFactor  = 3.141592f / 180.f;
+	const float radFactor  = M_PI / 180.f;
 	float delta = 1.f / engineGetSampleRate();
 	float phase = 0.f;
 	// signal
