@@ -1,7 +1,6 @@
 <h1>NLNRI_VCVRackPlugins</h1>
 <p>Nonlinear instruments as VCV Rack plugins<br/></p>
-<table><tr><td>
-  <h2>QU4DiT module</h2></td></tr>
+<table><tr><td></td><td><h2>QU4DiT module</h2></td></tr>
   <tr><td>
 <img src="https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/blob/master/res/QU4DiT_shot.jpg" align="left" /></td><td>
 <p>The Quadratic iterator, also known as Logistic map (after the Verhulst's logistic equation) is a simple one-dimensional model with chaotic behavior. It has a single parameter (here labeled "Chaos").<br/><br/>
