@@ -7,6 +7,6 @@ This module explores the region for parameter values above roughly 3.5, where ch
 There are two quadratic iterators running, one for the X output, the other for the Y output.<br/><br/>
 Offset allows to desplace C parameter for the Y iterator.<br/><br/>
 cv~C input expects bipolar signal ( -5 ~ +5 ).<br/><br/>( Panel .svg and logo by Alfredo Santamaría http://www.hakken.com.mx/gui.php )</p>
-<div style="clear:both;"></div>
+<div style="clear:both;"><br/><br/><br/></div>
 <h2>BallisticENV module</h2>
 <img src="https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/blob/master/res/BallisticENV_shot_1.jpg" align="left" />
