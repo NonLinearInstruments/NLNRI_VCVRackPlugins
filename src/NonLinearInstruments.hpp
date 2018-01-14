@@ -11,8 +11,11 @@ extern Plugin *plugin;
 ////////////////////
 
 struct QU4DiTWidget : ModuleWidget { QU4DiTWidget(); };
-//struct Luci8x8Widget : ModuleWidget { Luci8x8Widget(); };
 struct BallisticENVWidget : ModuleWidget { BallisticENVWidget(); };
+struct LuciCellWidget : ModuleWidget { LuciCellWidget(); };
+struct Luci4AudioSumWidget : ModuleWidget { Luci4AudioSumWidget(); };
+struct Luci4ParamDistrWidget : ModuleWidget { Luci4ParamDistrWidget(); };
+struct LuciControlWidget : ModuleWidget { LuciControlWidget(); };
 
 ////////////////////////
 // module components
@@ -23,6 +26,16 @@ struct KorgLargeGoldKnob : SVGKnob {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
 		sw->svg = SVG::load(assetPlugin(plugin, "res/KorgLargeGoldKnob.svg"));
+		sw->wrap();
+		box.size = sw->box.size;
+	}
+};
+
+struct KorgLargeBlueKnob : SVGKnob {
+	KorgLargeBlueKnob() {
+        minAngle = -0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		sw->svg = SVG::load(assetPlugin(plugin, "res/KorgLargeBlueKnob.svg"));
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -74,5 +87,32 @@ struct KorgCKSS : SVGSwitch, ToggleSwitch {
 	KorgCKSS() {
 		addFrame(SVG::load(assetPlugin(plugin,"res/KorgCKSS_0.svg")));
 		addFrame(SVG::load(assetPlugin(plugin,"res/KorgCKSS_1.svg")));
+	}
+};
+
+struct LuciControlRandomizeButton : SVGSwitch, MomentarySwitch {
+	LuciControlRandomizeButton() {
+		addFrame(SVG::load(assetPlugin(plugin, "res/LuciControlRandomizeButton.svg")));
+			}
+		};
+
+
+struct BigLuciButton : SVGSwitch, MomentarySwitch {
+	BigLuciButton() {
+		addFrame(SVG::load(assetPlugin(plugin, "res/BigLEDButton.svg")));
+	}
+};
+
+template <typename BASE>
+struct	luciControlRandomizeLight : BASE {
+	luciControlRandomizeLight() {
+		this->box.size = (Vec(80, 80));
+	}
+};
+
+template <typename BASE>
+struct luciLight : BASE {
+	luciLight() {
+		this->box.size = mm2px(Vec(100, 100));
 	}
 };

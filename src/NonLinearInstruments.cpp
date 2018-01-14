@@ -16,9 +16,15 @@ void init(rack::Plugin *p) {
 
 	// For each module, specify the ModuleWidget subclass, manufacturer slug (for saving in patches), manufacturer human-readable name, module slug, and module name
 	p->addModel(createModel<QU4DiTWidget>("NonLinearInstruments", "QUADiT", "Quadratic Iterator", OSCILLATOR_TAG));
-	//p->addModel(createModel<Luci8x8Widget>("NonLinearInstruments", "Luci8x8", "Luci 8x8", OSCILLATOR_TAG));
-	p->addModel(createModel<BallisticENVWidget>("NonLinearInstruments", "BallisticENV", "Ballistic ENV", ENVELOPE_GENERATOR_TAG));
+		p->addModel(createModel<BallisticENVWidget>("NonLinearInstruments", "BallisticENV", "Ballistic ENV", ENVELOPE_GENERATOR_TAG));
+	p->addModel(createModel<LuciCellWidget>("NonLinearInstruments", "LuciCell", "Luci Cell", OSCILLATOR_TAG));
+	p->addModel(createModel<Luci4AudioSumWidget>("NonLinearInstruments", "Luci4AudioSum", "Luci 4 Audio Sum", MIXER_TAG));
+	p->addModel(createModel<Luci4ParamDistrWidget>("NonLinearInstruments", "Luci4ParamDistr", "Luci 4 Param Distr", MULTIPLE_TAG));		
+	p->addModel(createModel<LuciControlWidget>("NonLinearInstruments", "LuciControl", "Luci Controller", CONTROLLER_TAG));
+		
+
 
 	// Any other plugin initialization may go here.
 	// As an alternative, consider lazy-loading assets and lookup tables when your module is created to reduce startup times of Rack.
+
 }
