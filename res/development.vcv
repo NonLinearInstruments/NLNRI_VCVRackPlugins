@@ -1,0 +1,3351 @@
+{
+  "version": "",
+  "modules": [
+    {
+      "plugin": "Core",
+      "model": "AudioInterface",
+      "pos": [
+        0.0,
+        0.0
+      ],
+      "params": [],
+      "data": {
+        "driver": 5,
+        "device": 2,
+        "sampleRate": 44100.0,
+        "blockSize": 256
+      }
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        765.0,
+        0.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "Fundamental",
+      "model": "Scope",
+      "pos": [
+        0.0,
+        380.0
+      ],
+      "params": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -6.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "data": {
+        "lissajous": 0,
+        "external": 0
+      }
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1140.0,
+        0.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        765.0,
+        380.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1140.0,
+        380.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        675.0,
+        0.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciControl",
+      "pos": [
+        210.0,
+        0.0
+      ],
+      "params": [
+        0.0,
+        0.0,
+        1.0,
+        0.0012400000123307109
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1515.0,
+        0.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1515.0,
+        380.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1890.0,
+        0.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1890.0,
+        380.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2265.0,
+        0.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2265.0,
+        380.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2640.0,
+        0.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3015.0,
+        0.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3390.0,
+        0.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2640.0,
+        380.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3015.0,
+        380.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3390.0,
+        380.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        765.0,
+        760.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        765.0,
+        1140.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        765.0,
+        1520.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        765.0,
+        1900.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        765.0,
+        2280.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        765.0,
+        2660.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1140.0,
+        760.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1515.0,
+        760.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1890.0,
+        760.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2265.0,
+        760.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2640.0,
+        760.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3015.0,
+        760.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3390.0,
+        760.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1140.0,
+        1140.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1515.0,
+        1140.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1890.0,
+        1140.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2265.0,
+        1140.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2640.0,
+        1140.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3015.0,
+        1140.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3390.0,
+        1140.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1140.0,
+        1520.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1515.0,
+        1520.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1890.0,
+        1520.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2265.0,
+        1520.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2640.0,
+        1520.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3015.0,
+        1520.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3390.0,
+        1520.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1140.0,
+        1900.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1515.0,
+        1900.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1890.0,
+        1900.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2265.0,
+        1900.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2640.0,
+        1900.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3015.0,
+        1900.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3390.0,
+        1900.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1140.0,
+        2280.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1515.0,
+        2280.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1890.0,
+        2280.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2265.0,
+        2280.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2640.0,
+        2280.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3015.0,
+        2280.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3390.0,
+        2280.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1140.0,
+        2660.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1515.0,
+        2660.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        1890.0,
+        2660.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2265.0,
+        2660.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        2640.0,
+        2660.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3015.0,
+        2660.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "LuciCell",
+      "pos": [
+        3390.0,
+        2660.0
+      ],
+      "params": [
+        0.0
+      ]
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        705.0,
+        0.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        675.0,
+        380.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        705.0,
+        380.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        645.0,
+        380.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        705.0,
+        760.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        675.0,
+        760.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        675.0,
+        1140.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        705.0,
+        1140.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        645.0,
+        1140.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        705.0,
+        1520.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        675.0,
+        1520.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        675.0,
+        1900.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        705.0,
+        1900.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        645.0,
+        1900.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        705.0,
+        2280.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        645.0,
+        2280.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        705.0,
+        2660.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        675.0,
+        2660.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        645.0,
+        2660.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4AudioSum",
+      "pos": [
+        210.0,
+        380.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3915.0,
+        0.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3855.0,
+        0.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3825.0,
+        0.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3855.0,
+        380.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3825.0,
+        380.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3915.0,
+        760.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3825.0,
+        760.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3855.0,
+        760.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3825.0,
+        1140.0
+      ],
+      "params": []
+    },
+    {
+      "plugin": "NonLinearInstruments",
+      "model": "Luci4ParamDistr",
+      "pos": [
+        3855.0,
+        1140.0
+      ],
+      "params": []
+    }
+  ],
+  "wires": [
+    {
+      "outputModuleId": 1,
+      "outputId": 0,
+      "inputModuleId": 6,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 3,
+      "outputId": 0,
+      "inputModuleId": 6,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 3,
+      "outputId": 1,
+      "inputModuleId": 1,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 1,
+      "outputId": 4,
+      "inputModuleId": 3,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 4,
+      "outputId": 4,
+      "inputModuleId": 5,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 5,
+      "outputId": 1,
+      "inputModuleId": 4,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 4,
+      "outputId": 2,
+      "inputModuleId": 1,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 1,
+      "outputId": 3,
+      "inputModuleId": 4,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 3,
+      "outputId": 3,
+      "inputModuleId": 5,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 5,
+      "outputId": 2,
+      "inputModuleId": 3,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 8,
+      "outputId": 1,
+      "inputModuleId": 3,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 3,
+      "outputId": 4,
+      "inputModuleId": 8,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 10,
+      "outputId": 1,
+      "inputModuleId": 8,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 8,
+      "outputId": 4,
+      "inputModuleId": 10,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 12,
+      "outputId": 1,
+      "inputModuleId": 10,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 10,
+      "outputId": 4,
+      "inputModuleId": 12,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 14,
+      "outputId": 1,
+      "inputModuleId": 12,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 12,
+      "outputId": 4,
+      "inputModuleId": 14,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 15,
+      "outputId": 1,
+      "inputModuleId": 14,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 14,
+      "outputId": 4,
+      "inputModuleId": 15,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 16,
+      "outputId": 1,
+      "inputModuleId": 15,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 15,
+      "outputId": 4,
+      "inputModuleId": 16,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 1,
+      "outputId": 1,
+      "inputModuleId": 16,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 16,
+      "outputId": 4,
+      "inputModuleId": 1,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 9,
+      "outputId": 2,
+      "inputModuleId": 8,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 8,
+      "outputId": 3,
+      "inputModuleId": 9,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 11,
+      "outputId": 2,
+      "inputModuleId": 10,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 10,
+      "outputId": 3,
+      "inputModuleId": 11,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 13,
+      "outputId": 2,
+      "inputModuleId": 12,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 12,
+      "outputId": 3,
+      "inputModuleId": 13,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 17,
+      "outputId": 2,
+      "inputModuleId": 14,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 14,
+      "outputId": 3,
+      "inputModuleId": 17,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 18,
+      "outputId": 2,
+      "inputModuleId": 15,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 15,
+      "outputId": 3,
+      "inputModuleId": 18,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 19,
+      "outputId": 2,
+      "inputModuleId": 16,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 16,
+      "outputId": 3,
+      "inputModuleId": 19,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 32,
+      "outputId": 2,
+      "inputModuleId": 19,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 19,
+      "outputId": 3,
+      "inputModuleId": 32,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 31,
+      "outputId": 2,
+      "inputModuleId": 18,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 18,
+      "outputId": 3,
+      "inputModuleId": 31,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 30,
+      "outputId": 2,
+      "inputModuleId": 17,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 17,
+      "outputId": 3,
+      "inputModuleId": 30,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 29,
+      "outputId": 2,
+      "inputModuleId": 13,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 13,
+      "outputId": 3,
+      "inputModuleId": 29,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 28,
+      "outputId": 2,
+      "inputModuleId": 11,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 11,
+      "outputId": 3,
+      "inputModuleId": 28,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 27,
+      "outputId": 2,
+      "inputModuleId": 9,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 9,
+      "outputId": 3,
+      "inputModuleId": 27,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 26,
+      "outputId": 2,
+      "inputModuleId": 5,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 5,
+      "outputId": 3,
+      "inputModuleId": 26,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 20,
+      "outputId": 2,
+      "inputModuleId": 4,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 4,
+      "outputId": 3,
+      "inputModuleId": 20,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 4,
+      "outputId": 1,
+      "inputModuleId": 19,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 19,
+      "outputId": 4,
+      "inputModuleId": 4,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 9,
+      "outputId": 1,
+      "inputModuleId": 5,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 5,
+      "outputId": 4,
+      "inputModuleId": 9,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 11,
+      "outputId": 1,
+      "inputModuleId": 9,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 9,
+      "outputId": 4,
+      "inputModuleId": 11,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 13,
+      "outputId": 1,
+      "inputModuleId": 11,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 11,
+      "outputId": 4,
+      "inputModuleId": 13,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 17,
+      "outputId": 1,
+      "inputModuleId": 13,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 13,
+      "outputId": 4,
+      "inputModuleId": 17,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 18,
+      "outputId": 1,
+      "inputModuleId": 17,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 17,
+      "outputId": 4,
+      "inputModuleId": 18,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 19,
+      "outputId": 1,
+      "inputModuleId": 18,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 18,
+      "outputId": 4,
+      "inputModuleId": 19,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 31,
+      "outputId": 4,
+      "inputModuleId": 32,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 32,
+      "outputId": 1,
+      "inputModuleId": 31,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 39,
+      "outputId": 2,
+      "inputModuleId": 32,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 32,
+      "outputId": 3,
+      "inputModuleId": 39,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 38,
+      "outputId": 2,
+      "inputModuleId": 31,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 31,
+      "outputId": 3,
+      "inputModuleId": 38,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 31,
+      "outputId": 1,
+      "inputModuleId": 30,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 30,
+      "outputId": 4,
+      "inputModuleId": 31,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 37,
+      "outputId": 2,
+      "inputModuleId": 30,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 30,
+      "outputId": 3,
+      "inputModuleId": 37,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 30,
+      "outputId": 1,
+      "inputModuleId": 29,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 29,
+      "outputId": 4,
+      "inputModuleId": 30,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 36,
+      "outputId": 2,
+      "inputModuleId": 29,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 29,
+      "outputId": 3,
+      "inputModuleId": 36,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 29,
+      "outputId": 1,
+      "inputModuleId": 28,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 28,
+      "outputId": 4,
+      "inputModuleId": 29,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 35,
+      "outputId": 2,
+      "inputModuleId": 28,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 28,
+      "outputId": 3,
+      "inputModuleId": 35,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 28,
+      "outputId": 1,
+      "inputModuleId": 27,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 27,
+      "outputId": 4,
+      "inputModuleId": 28,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 27,
+      "outputId": 1,
+      "inputModuleId": 26,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 26,
+      "outputId": 4,
+      "inputModuleId": 27,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 34,
+      "outputId": 2,
+      "inputModuleId": 27,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 27,
+      "outputId": 3,
+      "inputModuleId": 34,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 33,
+      "outputId": 2,
+      "inputModuleId": 26,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 26,
+      "outputId": 3,
+      "inputModuleId": 33,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 26,
+      "outputId": 1,
+      "inputModuleId": 20,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 20,
+      "outputId": 4,
+      "inputModuleId": 26,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 21,
+      "outputId": 2,
+      "inputModuleId": 20,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 20,
+      "outputId": 3,
+      "inputModuleId": 21,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 20,
+      "outputId": 1,
+      "inputModuleId": 32,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 32,
+      "outputId": 4,
+      "inputModuleId": 20,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 22,
+      "outputId": 2,
+      "inputModuleId": 21,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 21,
+      "outputId": 3,
+      "inputModuleId": 22,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 33,
+      "outputId": 1,
+      "inputModuleId": 21,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 21,
+      "outputId": 4,
+      "inputModuleId": 33,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 40,
+      "outputId": 2,
+      "inputModuleId": 33,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 33,
+      "outputId": 3,
+      "inputModuleId": 40,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 34,
+      "outputId": 1,
+      "inputModuleId": 33,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 33,
+      "outputId": 4,
+      "inputModuleId": 34,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 35,
+      "outputId": 1,
+      "inputModuleId": 34,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 34,
+      "outputId": 4,
+      "inputModuleId": 35,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 41,
+      "outputId": 2,
+      "inputModuleId": 34,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 34,
+      "outputId": 3,
+      "inputModuleId": 41,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 42,
+      "outputId": 2,
+      "inputModuleId": 35,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 35,
+      "outputId": 3,
+      "inputModuleId": 42,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 36,
+      "outputId": 1,
+      "inputModuleId": 35,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 35,
+      "outputId": 4,
+      "inputModuleId": 36,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 43,
+      "outputId": 2,
+      "inputModuleId": 36,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 36,
+      "outputId": 3,
+      "inputModuleId": 43,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 37,
+      "outputId": 1,
+      "inputModuleId": 36,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 36,
+      "outputId": 4,
+      "inputModuleId": 37,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 44,
+      "outputId": 2,
+      "inputModuleId": 37,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 37,
+      "outputId": 3,
+      "inputModuleId": 44,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 38,
+      "outputId": 1,
+      "inputModuleId": 37,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 37,
+      "outputId": 4,
+      "inputModuleId": 38,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 45,
+      "outputId": 2,
+      "inputModuleId": 38,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 38,
+      "outputId": 3,
+      "inputModuleId": 45,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 46,
+      "outputId": 2,
+      "inputModuleId": 39,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 39,
+      "outputId": 3,
+      "inputModuleId": 46,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 39,
+      "outputId": 1,
+      "inputModuleId": 38,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 38,
+      "outputId": 4,
+      "inputModuleId": 39,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 21,
+      "outputId": 1,
+      "inputModuleId": 39,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 39,
+      "outputId": 4,
+      "inputModuleId": 21,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 23,
+      "outputId": 2,
+      "inputModuleId": 22,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 22,
+      "outputId": 3,
+      "inputModuleId": 23,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 40,
+      "outputId": 1,
+      "inputModuleId": 22,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 22,
+      "outputId": 4,
+      "inputModuleId": 40,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 47,
+      "outputId": 2,
+      "inputModuleId": 40,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 40,
+      "outputId": 3,
+      "inputModuleId": 47,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 41,
+      "outputId": 1,
+      "inputModuleId": 40,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 40,
+      "outputId": 4,
+      "inputModuleId": 41,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 48,
+      "outputId": 2,
+      "inputModuleId": 41,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 41,
+      "outputId": 3,
+      "inputModuleId": 48,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 42,
+      "outputId": 1,
+      "inputModuleId": 41,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 41,
+      "outputId": 4,
+      "inputModuleId": 42,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 49,
+      "outputId": 2,
+      "inputModuleId": 42,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 42,
+      "outputId": 3,
+      "inputModuleId": 49,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 43,
+      "outputId": 1,
+      "inputModuleId": 42,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 42,
+      "outputId": 4,
+      "inputModuleId": 43,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 50,
+      "outputId": 2,
+      "inputModuleId": 43,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 43,
+      "outputId": 3,
+      "inputModuleId": 50,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 44,
+      "outputId": 1,
+      "inputModuleId": 43,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 43,
+      "outputId": 4,
+      "inputModuleId": 44,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 51,
+      "outputId": 2,
+      "inputModuleId": 44,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 44,
+      "outputId": 3,
+      "inputModuleId": 51,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 45,
+      "outputId": 1,
+      "inputModuleId": 44,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 44,
+      "outputId": 4,
+      "inputModuleId": 45,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 52,
+      "outputId": 2,
+      "inputModuleId": 45,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 45,
+      "outputId": 3,
+      "inputModuleId": 52,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 46,
+      "outputId": 1,
+      "inputModuleId": 45,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 45,
+      "outputId": 4,
+      "inputModuleId": 46,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 53,
+      "outputId": 2,
+      "inputModuleId": 46,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 46,
+      "outputId": 3,
+      "inputModuleId": 53,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 22,
+      "outputId": 1,
+      "inputModuleId": 46,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 46,
+      "outputId": 4,
+      "inputModuleId": 22,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 24,
+      "outputId": 2,
+      "inputModuleId": 23,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 23,
+      "outputId": 3,
+      "inputModuleId": 24,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 47,
+      "outputId": 1,
+      "inputModuleId": 23,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 23,
+      "outputId": 4,
+      "inputModuleId": 47,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 48,
+      "outputId": 1,
+      "inputModuleId": 47,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 47,
+      "outputId": 4,
+      "inputModuleId": 48,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 54,
+      "outputId": 2,
+      "inputModuleId": 47,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 47,
+      "outputId": 3,
+      "inputModuleId": 54,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 55,
+      "outputId": 2,
+      "inputModuleId": 48,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 48,
+      "outputId": 3,
+      "inputModuleId": 55,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 49,
+      "outputId": 1,
+      "inputModuleId": 48,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 48,
+      "outputId": 4,
+      "inputModuleId": 49,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 56,
+      "outputId": 2,
+      "inputModuleId": 49,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 49,
+      "outputId": 3,
+      "inputModuleId": 56,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 50,
+      "outputId": 1,
+      "inputModuleId": 49,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 49,
+      "outputId": 4,
+      "inputModuleId": 50,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 57,
+      "outputId": 2,
+      "inputModuleId": 50,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 50,
+      "outputId": 3,
+      "inputModuleId": 57,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 51,
+      "outputId": 1,
+      "inputModuleId": 50,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 50,
+      "outputId": 4,
+      "inputModuleId": 51,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 58,
+      "outputId": 2,
+      "inputModuleId": 51,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 51,
+      "outputId": 3,
+      "inputModuleId": 58,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 52,
+      "outputId": 1,
+      "inputModuleId": 51,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 51,
+      "outputId": 4,
+      "inputModuleId": 52,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 59,
+      "outputId": 2,
+      "inputModuleId": 52,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 52,
+      "outputId": 3,
+      "inputModuleId": 59,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 60,
+      "outputId": 2,
+      "inputModuleId": 53,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 53,
+      "outputId": 3,
+      "inputModuleId": 60,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 53,
+      "outputId": 1,
+      "inputModuleId": 52,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 52,
+      "outputId": 4,
+      "inputModuleId": 53,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 23,
+      "outputId": 1,
+      "inputModuleId": 53,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 53,
+      "outputId": 4,
+      "inputModuleId": 23,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 25,
+      "outputId": 2,
+      "inputModuleId": 24,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 24,
+      "outputId": 3,
+      "inputModuleId": 25,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 54,
+      "outputId": 1,
+      "inputModuleId": 24,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 24,
+      "outputId": 4,
+      "inputModuleId": 54,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 61,
+      "outputId": 2,
+      "inputModuleId": 54,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 54,
+      "outputId": 3,
+      "inputModuleId": 61,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 62,
+      "outputId": 2,
+      "inputModuleId": 55,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 55,
+      "outputId": 3,
+      "inputModuleId": 62,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 63,
+      "outputId": 2,
+      "inputModuleId": 56,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 56,
+      "outputId": 3,
+      "inputModuleId": 63,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 64,
+      "outputId": 2,
+      "inputModuleId": 57,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 57,
+      "outputId": 3,
+      "inputModuleId": 64,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 56,
+      "outputId": 1,
+      "inputModuleId": 55,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 55,
+      "outputId": 4,
+      "inputModuleId": 56,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 55,
+      "outputId": 1,
+      "inputModuleId": 54,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 54,
+      "outputId": 4,
+      "inputModuleId": 55,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 57,
+      "outputId": 1,
+      "inputModuleId": 56,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 56,
+      "outputId": 4,
+      "inputModuleId": 57,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 58,
+      "outputId": 1,
+      "inputModuleId": 57,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 57,
+      "outputId": 4,
+      "inputModuleId": 58,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 59,
+      "outputId": 1,
+      "inputModuleId": 58,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 58,
+      "outputId": 4,
+      "inputModuleId": 59,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 65,
+      "outputId": 2,
+      "inputModuleId": 58,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 58,
+      "outputId": 3,
+      "inputModuleId": 65,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 66,
+      "outputId": 2,
+      "inputModuleId": 59,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 59,
+      "outputId": 3,
+      "inputModuleId": 66,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 60,
+      "outputId": 1,
+      "inputModuleId": 59,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 59,
+      "outputId": 4,
+      "inputModuleId": 60,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 67,
+      "outputId": 2,
+      "inputModuleId": 60,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 60,
+      "outputId": 3,
+      "inputModuleId": 67,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 24,
+      "outputId": 1,
+      "inputModuleId": 60,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 60,
+      "outputId": 4,
+      "inputModuleId": 24,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 61,
+      "outputId": 1,
+      "inputModuleId": 25,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 25,
+      "outputId": 4,
+      "inputModuleId": 61,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 62,
+      "outputId": 1,
+      "inputModuleId": 61,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 61,
+      "outputId": 4,
+      "inputModuleId": 62,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 63,
+      "outputId": 1,
+      "inputModuleId": 62,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 62,
+      "outputId": 4,
+      "inputModuleId": 63,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 64,
+      "outputId": 1,
+      "inputModuleId": 63,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 63,
+      "outputId": 4,
+      "inputModuleId": 64,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 65,
+      "outputId": 1,
+      "inputModuleId": 64,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 64,
+      "outputId": 4,
+      "inputModuleId": 65,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 66,
+      "outputId": 1,
+      "inputModuleId": 65,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 65,
+      "outputId": 4,
+      "inputModuleId": 66,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 67,
+      "outputId": 1,
+      "inputModuleId": 66,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 66,
+      "outputId": 4,
+      "inputModuleId": 67,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 25,
+      "outputId": 1,
+      "inputModuleId": 67,
+      "inputId": 5
+    },
+    {
+      "outputModuleId": 67,
+      "outputId": 4,
+      "inputModuleId": 25,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 25,
+      "outputId": 3,
+      "inputModuleId": 1,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 1,
+      "outputId": 2,
+      "inputModuleId": 25,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 61,
+      "outputId": 3,
+      "inputModuleId": 3,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 3,
+      "outputId": 2,
+      "inputModuleId": 61,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 8,
+      "outputId": 2,
+      "inputModuleId": 62,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 62,
+      "outputId": 3,
+      "inputModuleId": 8,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 10,
+      "outputId": 2,
+      "inputModuleId": 63,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 63,
+      "outputId": 3,
+      "inputModuleId": 10,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 12,
+      "outputId": 2,
+      "inputModuleId": 64,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 64,
+      "outputId": 3,
+      "inputModuleId": 12,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 14,
+      "outputId": 2,
+      "inputModuleId": 65,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 65,
+      "outputId": 3,
+      "inputModuleId": 14,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 15,
+      "outputId": 2,
+      "inputModuleId": 66,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 66,
+      "outputId": 3,
+      "inputModuleId": 15,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 16,
+      "outputId": 2,
+      "inputModuleId": 67,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 67,
+      "outputId": 3,
+      "inputModuleId": 16,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 8,
+      "outputId": 0,
+      "inputModuleId": 6,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 10,
+      "outputId": 0,
+      "inputModuleId": 6,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 12,
+      "outputId": 0,
+      "inputModuleId": 68,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 14,
+      "outputId": 0,
+      "inputModuleId": 68,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 15,
+      "outputId": 0,
+      "inputModuleId": 68,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 16,
+      "outputId": 0,
+      "inputModuleId": 68,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 4,
+      "outputId": 0,
+      "inputModuleId": 69,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 5,
+      "outputId": 0,
+      "inputModuleId": 69,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 9,
+      "outputId": 0,
+      "inputModuleId": 69,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 11,
+      "outputId": 0,
+      "inputModuleId": 69,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 13,
+      "outputId": 0,
+      "inputModuleId": 70,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 17,
+      "outputId": 0,
+      "inputModuleId": 70,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 18,
+      "outputId": 0,
+      "inputModuleId": 70,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 19,
+      "outputId": 0,
+      "inputModuleId": 70,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 6,
+      "outputId": 0,
+      "inputModuleId": 71,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 68,
+      "outputId": 0,
+      "inputModuleId": 71,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 69,
+      "outputId": 0,
+      "inputModuleId": 71,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 70,
+      "outputId": 0,
+      "inputModuleId": 71,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 20,
+      "outputId": 0,
+      "inputModuleId": 73,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 26,
+      "outputId": 0,
+      "inputModuleId": 73,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 27,
+      "outputId": 0,
+      "inputModuleId": 73,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 28,
+      "outputId": 0,
+      "inputModuleId": 73,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 29,
+      "outputId": 0,
+      "inputModuleId": 72,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 30,
+      "outputId": 0,
+      "inputModuleId": 72,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 31,
+      "outputId": 0,
+      "inputModuleId": 72,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 32,
+      "outputId": 0,
+      "inputModuleId": 72,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 21,
+      "outputId": 0,
+      "inputModuleId": 75,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 33,
+      "outputId": 0,
+      "inputModuleId": 75,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 34,
+      "outputId": 0,
+      "inputModuleId": 75,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 35,
+      "outputId": 0,
+      "inputModuleId": 75,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 36,
+      "outputId": 0,
+      "inputModuleId": 74,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 37,
+      "outputId": 0,
+      "inputModuleId": 74,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 38,
+      "outputId": 0,
+      "inputModuleId": 74,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 39,
+      "outputId": 0,
+      "inputModuleId": 74,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 73,
+      "outputId": 0,
+      "inputModuleId": 76,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 72,
+      "outputId": 0,
+      "inputModuleId": 76,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 74,
+      "outputId": 0,
+      "inputModuleId": 76,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 75,
+      "outputId": 0,
+      "inputModuleId": 76,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 22,
+      "outputId": 0,
+      "inputModuleId": 78,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 40,
+      "outputId": 0,
+      "inputModuleId": 78,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 41,
+      "outputId": 0,
+      "inputModuleId": 78,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 42,
+      "outputId": 0,
+      "inputModuleId": 78,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 43,
+      "outputId": 0,
+      "inputModuleId": 77,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 44,
+      "outputId": 0,
+      "inputModuleId": 77,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 45,
+      "outputId": 0,
+      "inputModuleId": 77,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 46,
+      "outputId": 0,
+      "inputModuleId": 77,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 23,
+      "outputId": 0,
+      "inputModuleId": 79,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 47,
+      "outputId": 0,
+      "inputModuleId": 79,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 48,
+      "outputId": 0,
+      "inputModuleId": 79,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 49,
+      "outputId": 0,
+      "inputModuleId": 79,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 50,
+      "outputId": 0,
+      "inputModuleId": 80,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 51,
+      "outputId": 0,
+      "inputModuleId": 80,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 52,
+      "outputId": 0,
+      "inputModuleId": 80,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 53,
+      "outputId": 0,
+      "inputModuleId": 80,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 78,
+      "outputId": 0,
+      "inputModuleId": 81,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 77,
+      "outputId": 0,
+      "inputModuleId": 81,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 79,
+      "outputId": 0,
+      "inputModuleId": 81,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 80,
+      "outputId": 0,
+      "inputModuleId": 81,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 24,
+      "outputId": 0,
+      "inputModuleId": 83,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 54,
+      "outputId": 0,
+      "inputModuleId": 83,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 55,
+      "outputId": 0,
+      "inputModuleId": 83,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 56,
+      "outputId": 0,
+      "inputModuleId": 83,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 57,
+      "outputId": 0,
+      "inputModuleId": 82,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 58,
+      "outputId": 0,
+      "inputModuleId": 82,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 59,
+      "outputId": 0,
+      "inputModuleId": 82,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 60,
+      "outputId": 0,
+      "inputModuleId": 82,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 25,
+      "outputId": 0,
+      "inputModuleId": 85,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 61,
+      "outputId": 0,
+      "inputModuleId": 85,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 62,
+      "outputId": 0,
+      "inputModuleId": 85,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 63,
+      "outputId": 0,
+      "inputModuleId": 85,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 64,
+      "outputId": 0,
+      "inputModuleId": 84,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 65,
+      "outputId": 0,
+      "inputModuleId": 84,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 66,
+      "outputId": 0,
+      "inputModuleId": 84,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 67,
+      "outputId": 0,
+      "inputModuleId": 84,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 83,
+      "outputId": 0,
+      "inputModuleId": 86,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 82,
+      "outputId": 0,
+      "inputModuleId": 86,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 85,
+      "outputId": 0,
+      "inputModuleId": 86,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 84,
+      "outputId": 0,
+      "inputModuleId": 86,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 86,
+      "outputId": 0,
+      "inputModuleId": 87,
+      "inputId": 3
+    },
+    {
+      "outputModuleId": 81,
+      "outputId": 0,
+      "inputModuleId": 87,
+      "inputId": 2
+    },
+    {
+      "outputModuleId": 76,
+      "outputId": 0,
+      "inputModuleId": 87,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 71,
+      "outputId": 0,
+      "inputModuleId": 87,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 7,
+      "outputId": 0,
+      "inputModuleId": 88,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 89,
+      "outputId": 0,
+      "inputModuleId": 1,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 89,
+      "outputId": 1,
+      "inputModuleId": 3,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 89,
+      "outputId": 2,
+      "inputModuleId": 8,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 89,
+      "outputId": 3,
+      "inputModuleId": 10,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 90,
+      "outputId": 0,
+      "inputModuleId": 12,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 90,
+      "outputId": 1,
+      "inputModuleId": 14,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 90,
+      "outputId": 2,
+      "inputModuleId": 15,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 90,
+      "outputId": 3,
+      "inputModuleId": 16,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 88,
+      "outputId": 0,
+      "inputModuleId": 89,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 87,
+      "outputId": 0,
+      "inputModuleId": 2,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 87,
+      "outputId": 0,
+      "inputModuleId": 0,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 87,
+      "outputId": 0,
+      "inputModuleId": 0,
+      "inputId": 1
+    },
+    {
+      "outputModuleId": 88,
+      "outputId": 1,
+      "inputModuleId": 90,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 91,
+      "outputId": 0,
+      "inputModuleId": 4,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 91,
+      "outputId": 1,
+      "inputModuleId": 5,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 91,
+      "outputId": 2,
+      "inputModuleId": 9,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 91,
+      "outputId": 3,
+      "inputModuleId": 11,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 92,
+      "outputId": 0,
+      "inputModuleId": 13,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 92,
+      "outputId": 1,
+      "inputModuleId": 17,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 92,
+      "outputId": 2,
+      "inputModuleId": 18,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 92,
+      "outputId": 3,
+      "inputModuleId": 19,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 88,
+      "outputId": 3,
+      "inputModuleId": 91,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 88,
+      "outputId": 2,
+      "inputModuleId": 92,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 7,
+      "outputId": 0,
+      "inputModuleId": 93,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 93,
+      "outputId": 0,
+      "inputModuleId": 94,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 93,
+      "outputId": 1,
+      "inputModuleId": 95,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 94,
+      "outputId": 0,
+      "inputModuleId": 20,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 94,
+      "outputId": 1,
+      "inputModuleId": 26,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 94,
+      "outputId": 2,
+      "inputModuleId": 27,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 94,
+      "outputId": 3,
+      "inputModuleId": 28,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 95,
+      "outputId": 0,
+      "inputModuleId": 29,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 95,
+      "outputId": 1,
+      "inputModuleId": 30,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 95,
+      "outputId": 2,
+      "inputModuleId": 31,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 95,
+      "outputId": 3,
+      "inputModuleId": 32,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 93,
+      "outputId": 2,
+      "inputModuleId": 96,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 93,
+      "outputId": 3,
+      "inputModuleId": 97,
+      "inputId": 0
+    },
+    {
+      "outputModuleId": 96,
+      "outputId": 0,
+      "inputModuleId": 21,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 96,
+      "outputId": 1,
+      "inputModuleId": 33,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 96,
+      "outputId": 2,
+      "inputModuleId": 34,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 96,
+      "outputId": 3,
+      "inputModuleId": 35,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 97,
+      "outputId": 0,
+      "inputModuleId": 36,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 97,
+      "outputId": 1,
+      "inputModuleId": 37,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 97,
+      "outputId": 2,
+      "inputModuleId": 38,
+      "inputId": 6
+    },
+    {
+      "outputModuleId": 97,
+      "outputId": 3,
+      "inputModuleId": 39,
+      "inputId": 6
+    }
+  ]
+}
