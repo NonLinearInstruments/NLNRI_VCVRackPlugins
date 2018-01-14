@@ -77,7 +77,7 @@ LuciControlWidget::LuciControlWidget() {
 	addParam(createParam<KorgLargeBlueKnob>(Vec(77, 140), module, LuciControl::FREQUENCY_PARAM, 0.0, 10.0, 1. ));
 	addOutput(createOutput<PJ301MPort>(Vec(141, 158), module, LuciControl::FREQUENCY_OUTPUT));	
 	
-	addParam(createParam<KorgLargeBlueKnob>(Vec(15, 214), module, LuciControl::INFLUENCE_COARSE_PARAM, 1., 3.5, 1. ));
+	addParam(createParam<KorgLargeBlueKnob>(Vec(15, 214), module, LuciControl::INFLUENCE_COARSE_PARAM, 1., 1.5, 1. ));
 	addParam(createParam<KorgLargeBlueKnob>(Vec(77, 214), module, LuciControl::INFLUENCE_FINE_PARAM, -0.00124, 0.00124, 0. ));
 	addOutput(createOutput<PJ301MPort>(Vec(141, 232), module, LuciControl::INFLUENCE_OUTPUT));	
 		

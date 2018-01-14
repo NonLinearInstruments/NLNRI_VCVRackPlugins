@@ -36,6 +36,12 @@ struct luciCell {
 		influence =  clampf( _influence, 1.f, 3.50124f);
 	}
 	
+	void setTriggers( bool _trig1, bool _trig2, bool _trig3, bool _trig4){
+		if( _trig1 || _trig2 || _trig3 || _trig4 ){
+			phase *= influence;
+		}
+	}
+	/*
 	void setTrigInN( bool _trig1){
 		// advance phase if trigger is present
 		if( _trig1){ phase *= influence; } 
@@ -55,6 +61,7 @@ struct luciCell {
 		// advance phase if trigger is present
 		if( _trig4){ phase *= influence; }
 	}
+	*/
 	
 	void randomize( bool _rnd_trig){
 		if( _rnd_trig ){

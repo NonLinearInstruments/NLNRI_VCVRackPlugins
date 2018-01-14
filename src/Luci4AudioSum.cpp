@@ -37,7 +37,7 @@ void Luci4AudioSum::step() {
 		inputs[INPUT_2].value + 
 		inputs[INPUT_3].value + 
 		inputs[INPUT_4].value 
-		) / 4.f ;
+		) * 0.250000f ;
 }
 
 Luci4AudioSumWidget::Luci4AudioSumWidget() {

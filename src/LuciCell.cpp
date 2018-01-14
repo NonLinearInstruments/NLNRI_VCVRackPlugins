@@ -36,7 +36,8 @@ struct LuciCell : Module {
 	luciCell MyLuci;
 	float audioOut = 0.f;
 	// do the light thing
-	float lightLambda = 0.075;
+	//float lightLambda = 0.075;
+	float lightLambda = 0.025;
 	float resetLight = 0.0;
 	
 	LuciCell() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
@@ -51,10 +52,12 @@ struct LuciCell : Module {
 void LuciCell::step() {
 	
 	// receive neighbour cells triggers
-	MyLuci.setTrigInN(inputs[NORTH_INPUT].value);
-	MyLuci.setTrigInE(inputs[EAST_INPUT].value);	
-	MyLuci.setTrigInS(inputs[SOUTH_INPUT].value);	
-	MyLuci.setTrigInW(inputs[WEST_INPUT].value);
+	MyLuci.setTriggers(
+		inputs[NORTH_INPUT].value, 
+		inputs[EAST_INPUT].value, 
+		inputs[SOUTH_INPUT].value, 
+		inputs[WEST_INPUT].value
+		);
 	// randomize function
 	MyLuci.randomize(inputs[RND_INPUT].value);
 	// adjust frequency with 1v/oct
@@ -86,14 +89,11 @@ void LuciCell::step() {
 	if (params[RESET_PARAM].value > 0 || gotLuciTrigger ) {
 		resetLight = 1.0;
 		MyLuci.resetLuci();
-		//output = 12.0;
 	}
 	resetLight -= resetLight / lightLambda / engineGetSampleRate();
 	lights[RESET_LIGHT].value = resetLight;
 
-
 }
-
 
 LuciCellWidget::LuciCellWidget() {
 	LuciCell *module = new LuciCell();
@@ -123,10 +123,4 @@ LuciCellWidget::LuciCellWidget() {
 	
 	addParam(createParam<BigLuciButton>(Vec(35, 35), module, LuciCell::RESET_PARAM, 0.0, 1.0, 0.0));
 	addChild(createLight<luciLight<BlueLight>>(Vec(40, 40), module, LuciCell::RESET_LIGHT));
-
-			
-	
-	//	addChild(createLight<LargeLight<RedLight>>(Vec( xPos , yPos ), module, i));
 }
-
-
