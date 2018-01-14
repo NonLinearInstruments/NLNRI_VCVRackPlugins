@@ -34,7 +34,7 @@
      inkscape:window-width="1712"
      inkscape:window-height="980"
      inkscape:window-x="130"
-     inkscape:window-y="127"
+     inkscape:window-y="105"
      inkscape:window-maximized="0"
      units="px" />
   <metadata
@@ -55,7 +55,7 @@
      id="layer1"
      transform="translate(0,-196.45833)">
     <path
-       style="fill:#4c7262;fill-opacity:1;stroke-width:0.06989738"
+       style="fill:#000023;fill-opacity:1;stroke-width:0.06989738"
        d="M 0.22678578,196.50872 H 100.49127 V 296.94956 H 0.22678578 Z"
        id="rect815"
        inkscape:connector-curvature="0" />
