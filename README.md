@@ -7,7 +7,7 @@
 This module explores the region for parameter values above roughly 3.5, where chaos happens.<br/><br/>
 There are two quadratic iterators running, one for the X output, the other for the Y output.<br/><br/>
 Offset allows to desplace C parameter for the Y iterator.<br/><br/>
-  cv~C input expects bipolar signal ( -5 ~ +5 ).</p></td></tr>
+  cv~C input expects bipolar +/-5v signal.</p></td></tr>
   </table>
 <table width="100%"><tr><td width="20%"></td><td width="80%"><h2>BallisticENV module</h2></td></tr>
   <tr><td>
