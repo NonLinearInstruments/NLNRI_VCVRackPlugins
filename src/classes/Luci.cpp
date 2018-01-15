@@ -41,27 +41,7 @@ struct luciCell {
 			phase *= influence;
 		}
 	}
-	/*
-	void setTrigInN( bool _trig1){
-		// advance phase if trigger is present
-		if( _trig1){ phase *= influence; } 
-	}
 	
-	void setTrigInE( bool _trig2){
-		// advance phase if trigger is present
-		if( _trig2){ phase *= influence; }
-	}
-	
-	void setTrigInS( bool _trig3){
-		// advance phase if trigger is present
-		if( _trig3){ phase *= influence; }
-	}
-	
-	void setTrigInW( bool _trig4){
-		// advance phase if trigger is present
-		if( _trig4){ phase *= influence; }
-	}
-	*/
 	
 	void randomize( bool _rnd_trig){
 		if( _rnd_trig ){

@@ -16,10 +16,26 @@ struct LuciCellWidget : ModuleWidget { LuciCellWidget(); };
 struct Luci4AudioSumWidget : ModuleWidget { Luci4AudioSumWidget(); };
 struct Luci4ParamDistrWidget : ModuleWidget { Luci4ParamDistrWidget(); };
 struct LuciControlWidget : ModuleWidget { LuciControlWidget(); };
+struct LuciControlRNDWidget : ModuleWidget { LuciControlRNDWidget(); };
+struct LuciControlFREQWidget : ModuleWidget { LuciControlFREQWidget(); };
+struct LuciControlINFcoarseWidget : ModuleWidget { LuciControlINFcoarseWidget(); };
+struct LuciControlINFfineWidget : ModuleWidget { LuciControlINFfineWidget(); };
+
 
 ////////////////////////
 // module components
 ////////////////////////
+
+struct LuciVeryLargeBlueKnob : SVGKnob {
+	LuciVeryLargeBlueKnob() {
+        minAngle = -0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		sw->svg = SVG::load(assetPlugin(plugin, "res/LuciVeryLargeBlueKnob.svg"));
+		sw->wrap();
+		box.size = sw->box.size;
+	}
+};
+
 
 struct KorgLargeGoldKnob : SVGKnob {
 	KorgLargeGoldKnob() {
