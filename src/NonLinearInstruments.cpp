@@ -21,10 +21,10 @@ void init(rack::Plugin *p) {
 	p->addModel(createModel<Luci4AudioSumWidget>("NonLinearInstruments", "Luci4AudioSum", "Luci 4 Audio Sum", MIXER_TAG));
 	p->addModel(createModel<Luci4ParamDistrWidget>("NonLinearInstruments", "Luci4ParamDistr", "Luci 4 Param Distr", MULTIPLE_TAG));		
 	p->addModel(createModel<LuciControlWidget>("NonLinearInstruments", "LuciControl", "Luci Controller", CONTROLLER_TAG));
-	p->addModel(createModel<LuciControlRNDWidget>("NonLinearInstruments", "LuciControlRND", "Luci Cont. RAND", CONTROLLER_TAG));		
-	p->addModel(createModel<LuciControlFREQWidget>("NonLinearInstruments", "LuciControlFREQ", "Luci Cont. FREQ", CONTROLLER_TAG));	
-	p->addModel(createModel<LuciControlINFcoarseWidget>("NonLinearInstruments", "LuciContrINFLcoarse", "Luci Cont.Infl.Coarse", CONTROLLER_TAG));
-	p->addModel(createModel<LuciControlINFfineWidget>("NonLinearInstruments", "LuciContrINFLfine", "Luci Cont.Infl.Fine", CONTROLLER_TAG));
+	p->addModel(createModel<LuciControlRNDWidget>("NonLinearInstruments", "LuciControlRND", "Luci Ctrl RAND", CONTROLLER_TAG));		
+	p->addModel(createModel<LuciControlFREQWidget>("NonLinearInstruments", "LuciControlFREQ", "Luci Ctrl FREQ", CONTROLLER_TAG));	
+	p->addModel(createModel<LuciControlINFcoarseWidget>("NonLinearInstruments", "LuciControlINFL", "Luci Ctrl INFLUENCE", CONTROLLER_TAG));
+	//p->addModel(createModel<LuciControlINFfineWidget>("NonLinearInstruments", "LuciContrINFLfine", "Luci Cont.Infl.Fine", CONTROLLER_TAG));
 			
 	// Any other plugin initialization may go here.
 	// As an alternative, consider lazy-loading assets and lookup tables when your module is created to reduce startup times of Rack.

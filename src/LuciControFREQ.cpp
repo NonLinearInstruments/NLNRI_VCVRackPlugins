@@ -44,7 +44,7 @@ LuciControlFREQWidget::LuciControlFREQWidget() {
 		addChild(panel);
 	}
 	
-	addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlFREQ::FREQUENCY_PARAM, 0.0, 10.0, 1. ));
+	addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlFREQ::FREQUENCY_PARAM, 0.0, 8.0, 1. ));
 	addOutput(createOutput<PJ301MPort>(Vec(344, 172), module, LuciControlFREQ::FREQUENCY_OUTPUT));	
 	addInput(createInput<PJ3410Port>(Vec(2, 172), module, LuciControlFREQ::FREQUENCY_INPUT));
 		

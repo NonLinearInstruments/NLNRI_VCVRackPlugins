@@ -19,7 +19,7 @@ struct LuciControlWidget : ModuleWidget { LuciControlWidget(); };
 struct LuciControlRNDWidget : ModuleWidget { LuciControlRNDWidget(); };
 struct LuciControlFREQWidget : ModuleWidget { LuciControlFREQWidget(); };
 struct LuciControlINFcoarseWidget : ModuleWidget { LuciControlINFcoarseWidget(); };
-struct LuciControlINFfineWidget : ModuleWidget { LuciControlINFfineWidget(); };
+//struct LuciControlINFfineWidget : ModuleWidget { LuciControlINFfineWidget(); };
 
 
 ////////////////////////

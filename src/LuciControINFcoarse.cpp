@@ -7,8 +7,8 @@ struct LuciControlINFcoarse : Module {
 	};
 	enum InputIds {
 		INFLUENCE_COARSE_INPUT,
-		INFLUENCE_COARSE_MOD_INPUT,
-		INFLUENCE_FINE_INPUT,
+		//INFLUENCE_COARSE_MOD_INPUT,
+		//INFLUENCE_FINE_INPUT,
 		NUM_INPUTS
 	};
 	enum OutputIds {
@@ -30,7 +30,7 @@ struct LuciControlINFcoarse : Module {
 
 void LuciControlINFcoarse::step() {
 	
-		outputs[INFLUENCE_COARSE_OUTPUT].value = params[INFLUENCE_COARSE_PARAM].value + params[INFLUENCE_FINE_INPUT].value;
+		outputs[INFLUENCE_COARSE_OUTPUT].value = params[INFLUENCE_COARSE_PARAM].value;// + params[INFLUENCE_FINE_INPUT].value;
 		
 }
 
@@ -46,10 +46,10 @@ LuciControlINFcoarseWidget::LuciControlINFcoarseWidget() {
 		addChild(panel);
 	}
 	
-	addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlINFcoarse::INFLUENCE_COARSE_PARAM, 1., 3.5, 1. ));
+	addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlINFcoarse::INFLUENCE_COARSE_PARAM, 1.f, 1.3f, 1.f ));
 	addOutput(createOutput<PJ301MPort>(Vec(344, 172), module, LuciControlINFcoarse::INFLUENCE_COARSE_OUTPUT));
-	addInput(createInput<PJ3410Port>(Vec(2, 172), module, LuciControlINFcoarse::INFLUENCE_COARSE_MOD_INPUT));		
-	addInput(createInput<PJ3410Port>(Vec(172, 344), module, LuciControlINFcoarse::INFLUENCE_FINE_INPUT));
+	//addInput(createInput<PJ3410Port>(Vec(2, 172), module, LuciControlINFcoarse::INFLUENCE_COARSE_MOD_INPUT));		
+	//addInput(createInput<PJ3410Port>(Vec(172, 344), module, LuciControlINFcoarse::INFLUENCE_FINE_INPUT));
 		
 	
 }

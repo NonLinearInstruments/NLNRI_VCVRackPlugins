@@ -1,3 +1,4 @@
+/*
 #include "NonLinearInstruments.hpp"
 
 struct LuciControlINFfine : Module {
@@ -44,10 +45,11 @@ LuciControlINFfineWidget::LuciControlINFfineWidget() {
 		addChild(panel);
 	}
 	
-	addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlINFfine::INFLUENCE_FINE_PARAM, -0.00124, 0.00124, 0. ));
+	addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlINFfine::INFLUENCE_FINE_PARAM, 0.f, 0.1f, 0.f ));
 	addOutput(createOutput<PJ301MPort>(Vec(344, 172), module, LuciControlINFfine::INFLUENCE_FINE_OUTPUT));
 	addInput(createInput<PJ3410Port>(Vec(2, 172), module, LuciControlINFfine::INFLUENCE_FINE_MOD_INPUT));		
 	//addInput(createInput<PJ3410Port>(Vec(172, 344), module, LuciControlINFfine::INFLUENCE_FINE_INPUT));
 		
 	
 }
+*/

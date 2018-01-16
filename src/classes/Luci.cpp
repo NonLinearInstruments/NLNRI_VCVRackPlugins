@@ -25,6 +25,7 @@ struct luciCell {
 	float triggerLength = 10e-3;
 	// this is for the intrinsic one sample Luci trigger (to feed other cells)
 	bool luciTrigger = false;
+	bool randomizedStatus = false;
 	
 	void setFrequency( float pitchVoltage ){
 		// from CV to Hz
@@ -46,7 +47,8 @@ struct luciCell {
 	void randomize( bool _rnd_trig){
 		if( _rnd_trig ){
 			phase = (rand() % 100) / 100.f;
-			}
+			randomizedStatus = true;
+			} else { randomizedStatus = false; }
 	}
 	
 	void resetLuci (){
@@ -71,7 +73,12 @@ struct luciCell {
 		// integrate
 		phase += delta;
 		// process function returns an audio signal
-		return( ( 10.f * phase ) - 5.f );
+		// avoid random noise to slip thru output
+		if( randomizedStatus ){ 
+			return( 0.f );
+			} else {
+			return( ( 10.f * phase ) - 5.f );
+			}
 	}
 	
 	// extract trigger values
