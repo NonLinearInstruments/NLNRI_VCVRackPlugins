@@ -15,11 +15,9 @@ struct BallisticENVWidget : ModuleWidget { BallisticENVWidget(); };
 struct LuciCellWidget : ModuleWidget { LuciCellWidget(); };
 struct Luci4AudioSumWidget : ModuleWidget { Luci4AudioSumWidget(); };
 struct Luci4ParamDistrWidget : ModuleWidget { Luci4ParamDistrWidget(); };
-struct LuciControlWidget : ModuleWidget { LuciControlWidget(); };
 struct LuciControlRNDWidget : ModuleWidget { LuciControlRNDWidget(); };
 struct LuciControlFREQWidget : ModuleWidget { LuciControlFREQWidget(); };
 struct LuciControlINFcoarseWidget : ModuleWidget { LuciControlINFcoarseWidget(); };
-//struct LuciControlINFfineWidget : ModuleWidget { LuciControlINFfineWidget(); };
 
 
 ////////////////////////

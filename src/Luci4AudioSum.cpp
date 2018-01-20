@@ -40,6 +40,7 @@ void Luci4AudioSum::step() {
 		) * 0.250000f ;
 }
 
+
 Luci4AudioSumWidget::Luci4AudioSumWidget() {
 	Luci4AudioSum *module = new Luci4AudioSum();
 	setModule(module);
