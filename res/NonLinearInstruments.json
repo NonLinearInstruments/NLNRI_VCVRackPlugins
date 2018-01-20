@@ -14,7 +14,7 @@
     },
     "win": {
       "download": "https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/releases/download/0.5.3/NonLinearInstruments-0.5.3-win.zip",
-      "sha256": "d5a9a28c5222204d011032266a0f45dfbdaed2f6eb09eda8fd40100500a02c4b"
+      "sha256": "27d332f54177a8cb629889db883c574fe02dc6e4278611cfc09c24dad8d2fac4"
     },
     "lin": {
       "download": "https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/releases/download/0.5.3/NonLinearInstruments-0.5.3-lin.zip",
