@@ -4,7 +4,7 @@
 <table width="100%"><tr><td width="20%"></td><td width="80%"><h3>BallisticENV module</h3></td></tr>
   <tr><td>
 <img src="https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/blob/master/res/BallisticENV_shot_1.jpg"/></td><td><p>BallisticENV implements a ballistic model, or projectile motion. The trajectory is delivered both as CV signal 0~10v and as an oscillator with symmetric parabola waveform in the +/-5v range.<br/><br/>Please find <a href="https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/blob/master/res/BallisticENV_notes.pdf" target="_blank"><b>here the user manual</b></a></p>
-    <p>please find <a href="https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/blob/master/res/BallisticENV_examples.vcv" target="_blank">here a simple .vcv patch</a> with a couple suggested uses for BallisticENV.</p></td></tr>
+    <p>please find <a href="https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/blob/master/res/BallisticENV_examples.vcv" target="_blank">here a simple .vcv patch</a> with a couple suggested uses for BallisticENV.</p><p>( Panel .svg and logo by Alfredo Santamaría http://www.hakken.com.mx/gui.php )</p></td></tr>
   </table>
  
  <table width="100%"><tr><td width="20%"></td><td width="80%"><h3>QU4DiT module</h3></td></tr>
@@ -14,7 +14,7 @@
 This module explores the region for parameter values above roughly 3.5, where chaos happens.<br/><br/>
 There are two quadratic iterators running, one for the X output, the other for the Y output.<br/><br/>
 Offset allows to desplace C parameter for the Y iterator.<br/><br/>
-  cv~C input expects bipolar +/-5v signal.</p></td></tr>
+  cv~C input expects bipolar +/-5v signal.</p><p>( Panel .svg and logo by Alfredo Santamaría http://www.hakken.com.mx/gui.php )</p></td></tr>
   </table>
   
-<p>( Panel .svg and logo by Alfredo Santamaría http://www.hakken.com.mx/gui.php )</p>
+
