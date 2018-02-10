@@ -23,6 +23,7 @@ void init(rack::Plugin *p) {
 	p->addModel(createModel<LuciControlRNDWidget>("NonLinearInstruments", "LuciControlRND", "Luci Ctrl RAND", CONTROLLER_TAG));		
 	p->addModel(createModel<LuciControlFREQWidget>("NonLinearInstruments", "LuciControlFREQ", "Luci Ctrl FREQ", CONTROLLER_TAG));	
 	p->addModel(createModel<LuciControlINFcoarseWidget>("NonLinearInstruments", "LuciControlINFL", "Luci Ctrl INFLUENCE", CONTROLLER_TAG));
+	//p->addModel(createModel<LuciControlINFfineWidget>("NonLinearInstruments", "LuciContrINFLfine", "Luci Cont.Infl.Fine", CONTROLLER_TAG));
 			
 	// Any other plugin initialization may go here.
 	// As an alternative, consider lazy-loading assets and lookup tables when your module is created to reduce startup times of Rack.

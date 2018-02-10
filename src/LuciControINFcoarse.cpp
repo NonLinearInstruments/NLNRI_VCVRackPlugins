@@ -46,7 +46,7 @@ LuciControlINFcoarseWidget::LuciControlINFcoarseWidget() {
 		addChild(panel);
 	}
 	
-	addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlINFcoarse::INFLUENCE_COARSE_PARAM, 1.f, 1.1f, 1.001f ));
+	addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlINFcoarse::INFLUENCE_COARSE_PARAM, 0.f, 10.f, 0.001f ));
 	addOutput(createOutput<PJ301MPort>(Vec(344, 172), module, LuciControlINFcoarse::INFLUENCE_COARSE_OUTPUT));
 	//addInput(createInput<PJ3410Port>(Vec(2, 172), module, LuciControlINFcoarse::INFLUENCE_COARSE_MOD_INPUT));		
 	addInput(createInput<PJ3410Port>(Vec(172, 344), module, LuciControlINFcoarse::INFLUENCE_FINE_INPUT));

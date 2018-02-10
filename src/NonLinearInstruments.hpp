@@ -18,6 +18,7 @@ struct Luci4ParamDistrWidget : ModuleWidget { Luci4ParamDistrWidget(); };
 struct LuciControlRNDWidget : ModuleWidget { LuciControlRNDWidget(); };
 struct LuciControlFREQWidget : ModuleWidget { LuciControlFREQWidget(); };
 struct LuciControlINFcoarseWidget : ModuleWidget { LuciControlINFcoarseWidget(); };
+//struct LuciControlINFfineWidget : ModuleWidget { LuciControlINFfineWidget(); };
 
 
 ////////////////////////

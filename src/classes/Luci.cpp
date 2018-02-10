@@ -34,9 +34,9 @@ struct luciCell {
 	}
 	
 	void setInfluence( float _influence){
-		// numerical ranges could need to be limited
+		// expected parameter cv 0~10v
 		// influence =  clampf( _influence, -3.50124f, 3.50124f);
-		influence = _influence;
+		influence = 0.f + 1.050732f * ( _influence / 10.f);
 	}
 	
 	void setTriggers( bool _trig1, bool _trig2, bool _trig3, bool _trig4){
@@ -75,7 +75,7 @@ struct luciCell {
 		// integrate
 		phase += delta;
 		// process function returns an audio signal
-		// avoid random noise to slip thru output
+		// avoid random noise to slip thru output while randomize button is pressed
 		if( randomizedStatus ){ 
 			return( 0.f );
 			} else {
