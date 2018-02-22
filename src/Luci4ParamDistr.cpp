@@ -21,7 +21,7 @@ struct Luci4ParamDistr : Module {
 	enum LightIds {
 		NUM_LIGHTS
 	};
-		
+
 	Luci4ParamDistr() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
 	void step() override;
 
@@ -32,16 +32,16 @@ struct Luci4ParamDistr : Module {
 };
 
 void Luci4ParamDistr::step() {
-		outputs[OUTPUT_1].value = 
-		outputs[OUTPUT_2].value = 
-		outputs[OUTPUT_3].value = 
-		outputs[OUTPUT_4].value = 
+		outputs[OUTPUT_1].value =
+		outputs[OUTPUT_2].value =
+		outputs[OUTPUT_3].value =
+		outputs[OUTPUT_4].value =
 		inputs[INPUT_1].value ;
 }
 
-Luci4ParamDistrWidget::Luci4ParamDistrWidget() {
-	Luci4ParamDistr *module = new Luci4ParamDistr();
-	setModule(module);
+struct Luci4ParamDistrWidget : ModuleWidget { Luci4ParamDistrWidget(Luci4ParamDistr *module); };
+
+Luci4ParamDistrWidget::Luci4ParamDistrWidget(Luci4ParamDistr *module) : ModuleWidget(module) {
 	box.size = Vec(2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -50,12 +50,14 @@ Luci4ParamDistrWidget::Luci4ParamDistrWidget() {
 		panel->setBackground(SVG::load(assetPlugin(plugin, "res/Luci4ParamDistr.svg")));
 		addChild(panel);
 	}
-	
-	addInput(createInput<PJ301MPort>(Vec(3, 40), module, Luci4ParamDistr::INPUT_1));
 
-	addOutput(createOutput<PJ301MPort>(Vec(3, 130), module, Luci4ParamDistr::OUTPUT_1));
-	addOutput(createOutput<PJ301MPort>(Vec(3, 180), module, Luci4ParamDistr::OUTPUT_2));
-	addOutput(createOutput<PJ301MPort>(Vec(3, 230), module, Luci4ParamDistr::OUTPUT_3));
-	addOutput(createOutput<PJ301MPort>(Vec(3, 280), module, Luci4ParamDistr::OUTPUT_4));
+	addInput(Port::create<PJ301MPort>(Vec(3, 40), Port::INPUT, module, Luci4ParamDistr::INPUT_1));
+
+	addOutput(Port::create<PJ301MPort>(Vec(3, 130), Port::OUTPUT, module, Luci4ParamDistr::OUTPUT_1));
+	addOutput(Port::create<PJ301MPort>(Vec(3, 180), Port::OUTPUT, module, Luci4ParamDistr::OUTPUT_2));
+	addOutput(Port::create<PJ301MPort>(Vec(3, 230), Port::OUTPUT, module, Luci4ParamDistr::OUTPUT_3));
+	addOutput(Port::create<PJ301MPort>(Vec(3, 280), Port::OUTPUT, module, Luci4ParamDistr::OUTPUT_4));
 
 }
+
+Model *modelLuci4ParamDistr = Model::create<Luci4ParamDistr, Luci4ParamDistrWidget>("NonLinearInstruments", "Luci4ParamDistr", "Luci 4 Param Distr", MULTIPLE_TAG);

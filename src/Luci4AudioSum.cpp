@@ -21,7 +21,7 @@ struct Luci4AudioSum : Module {
 	enum LightIds {
 		NUM_LIGHTS
 	};
-		
+
 	Luci4AudioSum() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
 	void step() override;
 
@@ -32,18 +32,18 @@ struct Luci4AudioSum : Module {
 };
 
 void Luci4AudioSum::step() {
-		outputs[OUTPUT_1].value = ( 
-		inputs[INPUT_1].value + 
-		inputs[INPUT_2].value + 
-		inputs[INPUT_3].value + 
-		inputs[INPUT_4].value 
+		outputs[OUTPUT_1].value = (
+		inputs[INPUT_1].value +
+		inputs[INPUT_2].value +
+		inputs[INPUT_3].value +
+		inputs[INPUT_4].value
 		) * 0.250000f ;
 }
 
 
-Luci4AudioSumWidget::Luci4AudioSumWidget() {
-	Luci4AudioSum *module = new Luci4AudioSum();
-	setModule(module);
+struct Luci4AudioSumWidget : ModuleWidget { Luci4AudioSumWidget(Luci4AudioSum *module); };
+
+Luci4AudioSumWidget::Luci4AudioSumWidget(Luci4AudioSum *module) : ModuleWidget(module) {
 	box.size = Vec(2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -52,12 +52,14 @@ Luci4AudioSumWidget::Luci4AudioSumWidget() {
 		panel->setBackground(SVG::load(assetPlugin(plugin, "res/Luci4AudioSum.svg")));
 		addChild(panel);
 	}
-	
-	addOutput(createOutput<PJ301MPort>(Vec(3, 310), module, Luci4AudioSum::OUTPUT_1));
 
-	addInput(createInput<PJ301MPort>(Vec(3, 40), module, Luci4AudioSum::INPUT_1));
-	addInput(createInput<PJ301MPort>(Vec(3, 90), module, Luci4AudioSum::INPUT_2));
-	addInput(createInput<PJ301MPort>(Vec(3, 140), module, Luci4AudioSum::INPUT_3));
-	addInput(createInput<PJ301MPort>(Vec(3, 190), module, Luci4AudioSum::INPUT_4));
+	addOutput(Port::create<PJ301MPort>(Vec(3, 310), Port::OUTPUT, module, Luci4AudioSum::OUTPUT_1));
+
+	addInput(Port::create<PJ301MPort>(Vec(3, 40), Port::INPUT, module, Luci4AudioSum::INPUT_1));
+	addInput(Port::create<PJ301MPort>(Vec(3, 90), Port::INPUT, module, Luci4AudioSum::INPUT_2));
+	addInput(Port::create<PJ301MPort>(Vec(3, 140), Port::INPUT, module, Luci4AudioSum::INPUT_3));
+	addInput(Port::create<PJ301MPort>(Vec(3, 190), Port::INPUT, module, Luci4AudioSum::INPUT_4));
 
 }
+
+Model *modelLuci4AudioSum = Model::create<Luci4AudioSum, Luci4AudioSumWidget>("NonLinearInstruments", "Luci4AudioSum", "Luci 4 Audio Sum", MIXER_TAG);

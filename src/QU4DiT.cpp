@@ -72,9 +72,10 @@ void QU4DiT::step() {
 	ay = aynew;
 }
 
-QU4DiTWidget::QU4DiTWidget() {
-	QU4DiT *module = new QU4DiT();
-	setModule(module);
+struct QU4DiTWidget : ModuleWidget { QU4DiTWidget(QU4DiT *module); };
+struct LuciControlINFcoarseWidget : ModuleWidget { LuciControlINFcoarseWidget(); };
+
+QU4DiTWidget::QU4DiTWidget(QU4DiT *module) : ModuleWidget(module) {
 	box.size = Vec(6 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -84,13 +85,15 @@ QU4DiTWidget::QU4DiTWidget() {
 		addChild(panel);
 	}
 	
-	addParam(createParam<KorgLargeGoldKnob>(Vec(17, 58), module, QU4DiT::C_PARAM, 0.0, 1.0, 0.5 ));
-	addParam(createParam<KorgMedGreyKnob>(Vec(26, 140), module, QU4DiT::C_OFFSET, 0.0, 1.0, 0.0));
-	addParam(createParam<KorgMedGreyKnob>(Vec(26, 200), module, QU4DiT::CMOD_DEPTH, 0.0, 1.0, 0.0));
+	addParam(ParamWidget::create<KorgLargeGoldKnob>(Vec(17, 58), module, QU4DiT::C_PARAM, 0.0, 1.0, 0.5 ));
+	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(26, 140), module, QU4DiT::C_OFFSET, 0.0, 1.0, 0.0));
+	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(26, 200), module, QU4DiT::CMOD_DEPTH, 0.0, 1.0, 0.0));
 	
-	addInput(createInput<PJ301MPort>(Vec(32, 260), module, QU4DiT::CMOD_INPUT));
+	addInput(Port::create<PJ301MPort>(Vec(32, 260), Port::INPUT, module, QU4DiT::CMOD_INPUT));
 
-	addOutput(createOutput<PJ301MPort>(Vec(15, 310), module, QU4DiT::XN_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(50, 310), module, QU4DiT::YN_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(15, 310), Port::OUTPUT, module, QU4DiT::XN_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(50, 310), Port::OUTPUT, module, QU4DiT::YN_OUTPUT));
 
 }
+
+Model *modelQU4DiT = Model::create<QU4DiT, QU4DiTWidget>("NonLinearInstruments", "QUADiT", "Quadratic Iterator", OSCILLATOR_TAG);
