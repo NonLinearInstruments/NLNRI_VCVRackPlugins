@@ -10,14 +10,6 @@ extern Plugin *plugin;
 // module widgets
 ////////////////////
 
-struct QU4DiTWidget : ModuleWidget { QU4DiTWidget(); };
-struct BallisticENVWidget : ModuleWidget { BallisticENVWidget(); };
-struct LuciCellWidget : ModuleWidget { LuciCellWidget(); };
-struct Luci4AudioSumWidget : ModuleWidget { Luci4AudioSumWidget(); };
-struct Luci4ParamDistrWidget : ModuleWidget { Luci4ParamDistrWidget(); };
-struct LuciControlRNDWidget : ModuleWidget { LuciControlRNDWidget(); };
-struct LuciControlFREQWidget : ModuleWidget { LuciControlFREQWidget(); };
-struct LuciControlINFcoarseWidget : ModuleWidget { LuciControlINFcoarseWidget(); };
 //struct LuciControlINFfineWidget : ModuleWidget { LuciControlINFfineWidget(); };
 
 
@@ -131,3 +123,13 @@ struct luciLight : BASE {
 		this->box.size = mm2px(Vec(100, 100));
 	}
 };
+
+extern Model *modelQU4DiT;
+extern Model *modelBallisticENV;
+extern Model *modelLuciCell;
+extern Model *modelLuci4AudioSum;
+extern Model *modelLuci4ParamDistr;
+extern Model *modelLuciControlRND;
+extern Model *modelLuciControlFREQ;
+extern Model *modelLuciControlINFcoarse;
+//extern Model *modelLuciControlINFfine;

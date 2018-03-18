@@ -60,9 +60,10 @@ void BallisticENV::step() {
 }
 
 
-BallisticENVWidget::BallisticENVWidget() {
-	BallisticENV *module = new BallisticENV();
-	setModule(module);
+struct BallisticENVWidget : ModuleWidget { BallisticENVWidget(BallisticENV *module); };
+struct LuciCellWidget : ModuleWidget { LuciCellWidget(); };
+
+BallisticENVWidget::BallisticENVWidget(BallisticENV *module) : ModuleWidget(module) {
 	box.size = Vec(8 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -73,24 +74,26 @@ BallisticENVWidget::BallisticENVWidget() {
 	}
 	
 	
-	addParam(createParam<KorgMedGreyKnob>(Vec(75, 40), module, BallisticENV::IMPULSE_PARAM, 0.0, 1.0, 0.5 ));		
-	addParam(createParam<KorgSmallGreyKnob>(Vec(40, 48), module, BallisticENV::IMPULSE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
-	addInput(createInput<PJ301MPort>(Vec(10, 50), module, BallisticENV::IMPULSE_INPUT)); // -5 ~ +5
-	addParam(createParam<KorgMedGreyKnob>(Vec(75, 95), module, BallisticENV::ANGLE_PARAM, 0.0, 1.0, 1.0));
-	addParam(createParam<KorgSmallGreyKnob>(Vec(40, 103), module, BallisticENV::ANGLE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
-	addInput(createInput<PJ301MPort>(Vec(10, 105), module, BallisticENV::ANGLE_INPUT)); // -5 ~ +5
-	addParam(createParam<KorgMedGreyKnob>(Vec(75, 150), module, BallisticENV::GRAVITY_PARAM, 0.0, 1.0, 0.5));
-	addParam(createParam<KorgSmallGreyKnob>(Vec(40, 158), module, BallisticENV::GRAVITY_MOD_PARAM, 0.0, 1.0, 0.0 ));	
-	addInput(createInput<PJ301MPort>(Vec(10, 160), module, BallisticENV::GRAVITY_INPUT)); // -5 ~ +5
-	addParam(createParam<KorgCKSS>(Vec(58, 192), module, BallisticENV::BOUNCE_ON_OFF, 0.0, 1.0, 1.0));
-	addParam(createParam<KorgMedGreyKnob>(Vec(75, 216), module, BallisticENV::BOUNCE_PARAM, 0.0, 1.0, 0.5));
-	addParam(createParam<KorgSmallGreyKnob>(Vec(40, 222), module, BallisticENV::BOUNCE_MOD_PARAM, 0.0, 1.0, 0.0 ));	
-	addInput(createInput<PJ301MPort>(Vec(10, 224), module, BallisticENV::BOUNCE_INPUT)); // -5 ~ +5
-	addParam(createParam<CKD6>(Vec(42, 262), module, BallisticENV::SHOOT_PARAM, 0.0, 5.0, 0.0));
-	addInput(createInput<PJ301MPort>(Vec(10, 264), module, BallisticENV::TRIGGER_INPUT));	
-	addOutput(createOutput<PJ301MPort>(Vec(11, 320), module, BallisticENV::X_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(45, 320), module, BallisticENV::C_OUTPUT));
-	addOutput(createOutput<PJ301MPort>(Vec(80, 320), module, BallisticENV::ZERO_TRIG_OUTPUT));
+	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(75, 40), module, BallisticENV::IMPULSE_PARAM, 0.0, 1.0, 0.5 ));		
+	addParam(ParamWidget::create<KorgSmallGreyKnob>(Vec(40, 48), module, BallisticENV::IMPULSE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
+	addInput(Port::create<PJ301MPort>(Vec(10, 50), Port::INPUT, module, BallisticENV::IMPULSE_INPUT)); // -5 ~ +5
+	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(75, 95), module, BallisticENV::ANGLE_PARAM, 0.0, 1.0, 1.0));
+	addParam(ParamWidget::create<KorgSmallGreyKnob>(Vec(40, 103), module, BallisticENV::ANGLE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
+	addInput(Port::create<PJ301MPort>(Vec(10, 105), Port::INPUT, module, BallisticENV::ANGLE_INPUT)); // -5 ~ +5
+	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(75, 150), module, BallisticENV::GRAVITY_PARAM, 0.0, 1.0, 0.5));
+	addParam(ParamWidget::create<KorgSmallGreyKnob>(Vec(40, 158), module, BallisticENV::GRAVITY_MOD_PARAM, 0.0, 1.0, 0.0 ));	
+	addInput(Port::create<PJ301MPort>(Vec(10, 160), Port::INPUT, module, BallisticENV::GRAVITY_INPUT)); // -5 ~ +5
+	addParam(ParamWidget::create<KorgCKSS>(Vec(58, 192), module, BallisticENV::BOUNCE_ON_OFF, 0.0, 1.0, 1.0));
+	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(75, 216), module, BallisticENV::BOUNCE_PARAM, 0.0, 1.0, 0.5));
+	addParam(ParamWidget::create<KorgSmallGreyKnob>(Vec(40, 222), module, BallisticENV::BOUNCE_MOD_PARAM, 0.0, 1.0, 0.0 ));	
+	addInput(Port::create<PJ301MPort>(Vec(10, 224), Port::INPUT, module, BallisticENV::BOUNCE_INPUT)); // -5 ~ +5
+	addParam(ParamWidget::create<CKD6>(Vec(42, 262), module, BallisticENV::SHOOT_PARAM, 0.0, 5.0, 0.0));
+	addInput(Port::create<PJ301MPort>(Vec(10, 264), Port::INPUT, module, BallisticENV::TRIGGER_INPUT));	
+	addOutput(Port::create<PJ301MPort>(Vec(11, 320), Port::OUTPUT, module, BallisticENV::X_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(45, 320), Port::OUTPUT, module, BallisticENV::C_OUTPUT));
+	addOutput(Port::create<PJ301MPort>(Vec(80, 320), Port::OUTPUT, module, BallisticENV::ZERO_TRIG_OUTPUT));
 
 	
 }
+
+Model *modelBallisticENV = Model::create<BallisticENV, BallisticENVWidget>("NonLinearInstruments", "BallisticENV", "Ballistic ENV", ENVELOPE_GENERATOR_TAG);

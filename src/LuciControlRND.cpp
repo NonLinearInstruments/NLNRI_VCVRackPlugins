@@ -3,7 +3,7 @@
 struct LuciControlRND : Module {
 	enum ParamIds {
 		RANDOMIZE_PARAM,
-		
+
 		NUM_PARAMS
 	};
 	enum InputIds {
@@ -18,7 +18,7 @@ struct LuciControlRND : Module {
 		RANDOMIZE_LIGHT,
 		NUM_LIGHTS
 	};
-		
+
 	LuciControlRND() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
 	void step() override;
 	// do the light thing
@@ -34,21 +34,21 @@ struct LuciControlRND : Module {
 };
 
 void LuciControlRND::step() {
-	
+
 		gotRandomize = params[RANDOMIZE_PARAM].value + params[RANDOMIZE_INPUT].value;
 		outputs[RANDOMIZE_OUTPUT].value = gotRandomize;
-		// Reset button light 
+		// Reset button light
 		if ( gotRandomize > 0 ) {
 			randomizeLight = 1.0;
 			}
 		randomizeLight -= randomizeLight / lightLambda / engineGetSampleRate();
 		lights[RANDOMIZE_LIGHT].value = randomizeLight;
-		
+
 }
 
-LuciControlRNDWidget::LuciControlRNDWidget() {
-	LuciControlRND *module = new LuciControlRND();
-	setModule(module);
+struct LuciControlRNDWidget : ModuleWidget { LuciControlRNDWidget(LuciControlRND *module); };
+
+LuciControlRNDWidget::LuciControlRNDWidget(LuciControlRND *module) : ModuleWidget(module) {
 	box.size = Vec(25 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
 
 	{
@@ -57,10 +57,12 @@ LuciControlRNDWidget::LuciControlRNDWidget() {
 		panel->setBackground(SVG::load(assetPlugin(plugin, "res/LuciControlRND.svg")));
 		addChild(panel);
 	}
-	
-	addParam(createParam<BigLuciButton>(Vec(35, 55), module, LuciControlRND::RANDOMIZE_PARAM, 0.0, 1.0, 0.0));
-	addChild(createLight<luciLight<BlueLight>>(Vec(40, 60), module, LuciControlRND::RANDOMIZE_LIGHT));
-	addOutput(createOutput<PJ301MPort>(Vec(344, 172), module, LuciControlRND::RANDOMIZE_OUTPUT));
-	addInput(createInput<PJ3410Port>(Vec(2, 172), module, LuciControlRND::RANDOMIZE_INPUT));
-		
+
+	addParam(ParamWidget::create<BigLuciButton>(Vec(35, 55), module, LuciControlRND::RANDOMIZE_PARAM, 0.0, 1.0, 0.0));
+	addChild(ModuleLightWidget::create<luciLight<BlueLight>>(Vec(40, 60), module, LuciControlRND::RANDOMIZE_LIGHT));
+	addOutput(Port::create<PJ301MPort>(Vec(344, 172), Port::OUTPUT, module, LuciControlRND::RANDOMIZE_OUTPUT));
+	addInput(Port::create<PJ3410Port>(Vec(2, 172), Port::INPUT, module, LuciControlRND::RANDOMIZE_INPUT));
+
 }
+
+Model *modelLuciControlRND = Model::create<LuciControlRND, LuciControlRNDWidget>("NonLinearInstruments", "LuciControlRND", "Luci Ctrl RAND", CONTROLLER_TAG);

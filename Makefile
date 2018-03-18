@@ -1,5 +1,5 @@
 SLUG = NonLinearInstruments
-VERSION = 0.5.3
+VERSION = 0.6.0dev
 
 # FLAGS will be passed to both the C and C++ compiler
 FLAGS +=
@@ -13,16 +13,7 @@ LDFLAGS +=
 # Add .cpp and .c files to the build
 SOURCES = $(wildcard src/*.cpp) $(wildcard classes/*.cpp)
 
-# Must include the VCV plugin Makefile framework
-include ../../plugin.mk
+DISTRIBUTABLES += $(wildcard LICENSE*) res
 
-
-# Convenience target for including files in the distributable release
-.PHONY: dist
-dist: all
-	rm -rf dist
-	mkdir -p dist/$(SLUG)
-	cp LICENSE* dist/$(SLUG)/
-	cp $(TARGET) dist/$(SLUG)/
-	cp -R res dist/$(SLUG)/
-	cd dist && zip -5 -r $(SLUG)-$(VERSION)-$(ARCH).zip $(SLUG)
+RACK_DIR ?= ../..
+include $(RACK_DIR)/plugin.mk
