@@ -47,7 +47,7 @@ struct logisticMap {
 
 	void process (){
 	CmodValue = CmodValue * (Cmax - Cvalue);
-	Cparam = clampf ( Cmin + Cvalue + CvalueFine + CmodValue, Cmin , Cmax );
+	Cparam = clamp ( Cmin + Cvalue + CvalueFine + CmodValue, Cmin , Cmax );
 	axnew = Cparam * ax * ( 1.f - ax );
 	output = std::isfinite( axnew ) ? 5. * axnew : 0.f;
 	ax = axnew;	

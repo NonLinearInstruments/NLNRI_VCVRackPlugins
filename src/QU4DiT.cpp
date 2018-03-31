@@ -57,11 +57,11 @@ struct QU4DiT : Module {
 
 
 void QU4DiT::step() {
-	CmodDepthParam = clampf ( params[CMOD_DEPTH].value, 0.f, 1.f );
-	CmodValue = clampf ( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ) * CmodDepthParam * .025f;
-	Cvalue =  C_range * clampf ( params[C_PARAM].value, 0.f, 1.f );
-	Cparam = clampf ( Cmin + Cvalue + CmodValue, Cmin , Cmax );
-	Coffset = Off_range * clampf ( params[C_OFFSET].value, 0.f, 1.f );
+	CmodDepthParam = clamp ( params[CMOD_DEPTH].value, 0.f, 1.f );
+	CmodValue = clamp ( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ) * CmodDepthParam * .025f;
+	Cvalue =  C_range * clamp ( params[C_PARAM].value, 0.f, 1.f );
+	Cparam = clamp ( Cmin + Cvalue + CmodValue, Cmin , Cmax );
+	Coffset = Off_range * clamp ( params[C_OFFSET].value, 0.f, 1.f );
 	axnew = Cparam * ax * ( 1.f - ax );
 	aynew = ( Cparam + Coffset ) * ay * ( 1.f - ay );
 	Xout = axnew * 10.f - 5.f;

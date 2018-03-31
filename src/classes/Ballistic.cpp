@@ -37,14 +37,14 @@ struct Ballistic {
 	void setImpulse( float _impulse ){
 		if(isRunning){
 			// avoid very small impulses. 
-			impulse = 0.01f + 100.f * pow ( clampf( _impulse, 0.f, 1.f ) ,2) ;
+			impulse = 0.01f + 100.f * pow ( clamp( _impulse, 0.f, 1.f ) ,2) ;
 		}
 	}
 	void setGravity( float _gravity )
 	{
 		if(isRunning){
 			// avoid zero gravity. Max. 10g
-			gravity = 0.01f + 98.f * clampf( _gravity, 0.f, 1.f );
+			gravity = 0.01f + 98.f * clamp( _gravity, 0.f, 1.f );
 			}
 	}	
 	void setAngle  ( float _angle ){
@@ -52,15 +52,15 @@ struct Ballistic {
 			// avoid shoot at 0º. max angle slightly less than 90º
 			// angle in degrees ( parameter must be 0. ~ 1. )	
 			if(isReBounding){
-				angle = radFactor *  ( 0.001f + ( 89.998 * clampf( _angle, 0.f, 1.f) * pow(bounce,(float)reBoundCount) )); //radical !!
+				angle = radFactor *  ( 0.001f + ( 89.998 * clamp( _angle, 0.f, 1.f) * pow(bounce,(float)reBoundCount) )); //radical !!
 				} else {
-				angle = radFactor *  ( 0.001f + ( 89.998 * clampf( _angle, 0.f, 1.f) ));
+				angle = radFactor *  ( 0.001f + ( 89.998 * clamp( _angle, 0.f, 1.f) ));
 				}
 			}
 	}
 	void setBounce ( float _bounce){
 		// use a log scale
-		bounce = ( 6.f + log10( clampf( _bounce, 0.000001f, 0.99f))) / 6.f;
+		bounce = ( 6.f + log10( clamp( _bounce, 0.000001f, 0.99f))) / 6.f;
 	}	
 	// compute trajectory
 	void shoot (bool trigger){	
