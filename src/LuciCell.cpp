@@ -95,18 +95,11 @@ void LuciCell::step() {
 
 }
 
-struct LuciCellWidget : ModuleWidget { LuciCellWidget(LuciCell *module); };
-
-LuciCellWidget::LuciCellWidget(LuciCell *module) : ModuleWidget(module) {
-	box.size = Vec(25 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
-
-	{
-		SVGPanel *panel = new SVGPanel();
-		panel->box.size = box.size;
-		panel->setBackground(SVG::load(assetPlugin(plugin, "res/LuciCell.svg")));
-		addChild(panel);
-	}
-
+struct LuciCellWidget : ModuleWidget { 
+	
+	LuciCellWidget(LuciCell *module) : ModuleWidget(module) {
+	setPanel(SVG::load(assetPlugin(plugin, "res/LuciCell.svg")));
+		
 	addOutput(Port::create<PJ301MPort>(Vec(2, 2), Port::OUTPUT, module, LuciCell::XN_OUTPUT));
 	addOutput(Port::create<PJ301MPort>(Vec(2, 210), Port::OUTPUT, module, LuciCell::NORTH_TRIG_OUT));
 	addOutput(Port::create<PJ301MPort>(Vec(210, 2), Port::OUTPUT, module, LuciCell::WEST_TRIG_OUT));
@@ -123,6 +116,7 @@ LuciCellWidget::LuciCellWidget(LuciCell *module) : ModuleWidget(module) {
 
 	addParam(ParamWidget::create<BigLuciButton>(Vec(35, 35), module, LuciCell::RESET_PARAM, 0.0, 1.0, 0.0));
 	addChild(ModuleLightWidget::create<luciLight<BlueLight>>(Vec(40, 40), module, LuciCell::RESET_LIGHT));
-}
+	}
+};
 
 Model *modelLuciCell = Model::create<LuciCell, LuciCellWidget>("NonLinearInstruments", "LuciCell", "Luci Cell", OSCILLATOR_TAG);

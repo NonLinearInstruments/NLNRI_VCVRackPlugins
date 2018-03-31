@@ -32,23 +32,15 @@ void LuciControlFREQ::step() {
 
 }
 
-struct LuciControlFREQWidget : ModuleWidget { LuciControlFREQWidget(LuciControlFREQ *module); };
-
-LuciControlFREQWidget::LuciControlFREQWidget(LuciControlFREQ *module) : ModuleWidget(module) {
-	box.size = Vec(25 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
-
-	{
-		SVGPanel *panel = new SVGPanel();
-		panel->box.size = box.size;
-		panel->setBackground(SVG::load(assetPlugin(plugin, "res/LuciControlFREQ.svg")));
-		addChild(panel);
-	}
-
+struct LuciControlFREQWidget : ModuleWidget { 
+	LuciControlFREQWidget(LuciControlFREQ *module) : ModuleWidget(module) {
+	setPanel(SVG::load(assetPlugin(plugin, "res/LuciControlFREQ.svg")));
+		
 	addParam(ParamWidget::create<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlFREQ::FREQUENCY_PARAM, 0.0, 8.0, 1. ));
 	addOutput(Port::create<PJ301MPort>(Vec(344, 172), Port::OUTPUT, module, LuciControlFREQ::FREQUENCY_OUTPUT));
 	addInput(Port::create<PJ3410Port>(Vec(2, 172), Port::INPUT, module, LuciControlFREQ::FREQUENCY_INPUT));
 
-
-}
+	}
+};
 
 Model *modelLuciControlFREQ = Model::create<LuciControlFREQ, LuciControlFREQWidget>("NonLinearInstruments", "LuciControlFREQ", "Luci Ctrl FREQ", CONTROLLER_TAG);

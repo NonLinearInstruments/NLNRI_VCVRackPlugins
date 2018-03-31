@@ -10,7 +10,16 @@ extern Plugin *plugin;
 // module widgets
 ////////////////////
 
-//struct LuciControlINFfineWidget : ModuleWidget { LuciControlINFfineWidget(); };
+extern Model *modelQU4DiT;
+
+extern Model *modelBallisticENV;
+
+extern Model *modelLuciCell;
+extern Model *modelLuci4AudioSum;
+extern Model *modelLuci4ParamDistr;
+extern Model *modelLuciControlRND;
+extern Model *modelLuciControlFREQ;
+extern Model *modelLuciControlINFcoarse;
 
 
 ////////////////////////
@@ -21,7 +30,7 @@ struct LuciVeryLargeBlueKnob : SVGKnob {
 	LuciVeryLargeBlueKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		sw->svg = SVG::load(assetPlugin(plugin, "res/LuciVeryLargeBlueKnob.svg"));
+		setSVG( SVG::load(assetPlugin(plugin, "res/LuciVeryLargeBlueKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -32,7 +41,7 @@ struct KorgLargeGoldKnob : SVGKnob {
 	KorgLargeGoldKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		sw->svg = SVG::load(assetPlugin(plugin, "res/KorgLargeGoldKnob.svg"));
+		setSVG( SVG::load(assetPlugin(plugin, "res/KorgLargeGoldKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -42,7 +51,7 @@ struct KorgLargeBlueKnob : SVGKnob {
 	KorgLargeBlueKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		sw->svg = SVG::load(assetPlugin(plugin, "res/KorgLargeBlueKnob.svg"));
+		setSVG( SVG::load(assetPlugin(plugin, "res/KorgLargeBlueKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -52,7 +61,7 @@ struct KorgLargeGreyKnob : SVGKnob {
 	KorgLargeGreyKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		sw->svg = SVG::load(assetPlugin(plugin, "res/KorgLargeGreyKnob.svg"));
+		setSVG( SVG::load(assetPlugin(plugin, "res/KorgLargeGreyKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -63,7 +72,7 @@ struct KorgMedGoldKnob : SVGKnob {
 	KorgMedGoldKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		sw->svg = SVG::load(assetPlugin(plugin, "res/KorgMedGoldKnob.svg"));
+		setSVG( SVG::load(assetPlugin(plugin, "res/KorgMedGoldKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -74,7 +83,7 @@ struct KorgMedGreyKnob : SVGKnob {
 	KorgMedGreyKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		sw->svg = SVG::load(assetPlugin(plugin, "res/KorgMedGreyKnob.svg"));
+		setSVG( SVG::load(assetPlugin(plugin, "res/KorgMedGreyKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -84,7 +93,7 @@ struct KorgSmallGreyKnob : SVGKnob {
 	KorgSmallGreyKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		sw->svg = SVG::load(assetPlugin(plugin, "res/KorgSmallGreyKnob.svg"));
+		setSVG( SVG::load(assetPlugin(plugin, "res/KorgSmallGreyKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -124,12 +133,3 @@ struct luciLight : BASE {
 	}
 };
 
-extern Model *modelQU4DiT;
-extern Model *modelBallisticENV;
-extern Model *modelLuciCell;
-extern Model *modelLuci4AudioSum;
-extern Model *modelLuci4ParamDistr;
-extern Model *modelLuciControlRND;
-extern Model *modelLuciControlFREQ;
-extern Model *modelLuciControlINFcoarse;
-//extern Model *modelLuciControlINFfine;

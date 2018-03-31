@@ -34,24 +34,16 @@ void LuciControlINFcoarse::step() {
 
 }
 
-struct LuciControlINFcoarseWidget : ModuleWidget { LuciControlINFcoarseWidget(LuciControlINFcoarse *module); };
-
-LuciControlINFcoarseWidget::LuciControlINFcoarseWidget(LuciControlINFcoarse *module) : ModuleWidget(module) {
-	box.size = Vec(25 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
-
-	{
-		SVGPanel *panel = new SVGPanel();
-		panel->box.size = box.size;
-		panel->setBackground(SVG::load(assetPlugin(plugin, "res/LuciControlINFcoarse.svg")));
-		addChild(panel);
-	}
-
+struct LuciControlINFcoarseWidget : ModuleWidget { 
+	LuciControlINFcoarseWidget(LuciControlINFcoarse *module) : ModuleWidget(module) {
+	setPanel(SVG::load(assetPlugin(plugin, "res/LuciControlINFcoarse.svg")));
+	
 	addParam(ParamWidget::create<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlINFcoarse::INFLUENCE_COARSE_PARAM, 0.f, 10.f, 0.001f ));
 	addOutput(Port::create<PJ301MPort>(Vec(344, 172), Port::OUTPUT, module, LuciControlINFcoarse::INFLUENCE_COARSE_OUTPUT));
 	//addInput(Port::create<PJ3410Port>(Vec(2, 172), Port::INPUT, module, LuciControlINFcoarse::INFLUENCE_COARSE_MOD_INPUT));
 	addInput(Port::create<PJ3410Port>(Vec(172, 344), Port::INPUT, module, LuciControlINFcoarse::INFLUENCE_FINE_INPUT));
 
-
-}
+	}
+};
 
 Model *modelLuciControlINFcoarse = Model::create<LuciControlINFcoarse, LuciControlINFcoarseWidget>("NonLinearInstruments", "LuciControlINFL", "Luci Ctrl INFLUENCE", CONTROLLER_TAG);

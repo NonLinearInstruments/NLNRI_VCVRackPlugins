@@ -60,19 +60,14 @@ void BallisticENV::step() {
 }
 
 
-struct BallisticENVWidget : ModuleWidget { BallisticENVWidget(BallisticENV *module); };
-struct LuciCellWidget : ModuleWidget { LuciCellWidget(); };
+// here changes to 0.6.0 !!
 
-BallisticENVWidget::BallisticENVWidget(BallisticENV *module) : ModuleWidget(module) {
-	box.size = Vec(8 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
+struct BallisticENVWidget : ModuleWidget { 
 
-	{
-		SVGPanel *panel = new SVGPanel();
-		panel->box.size = box.size;
-		panel->setBackground(SVG::load(assetPlugin(plugin, "res/BallisticENV.svg")));
-		addChild(panel);
-	}
+BallisticENVWidget(BallisticENV *module) : ModuleWidget(module) {
 	
+	setPanel(SVG::load(assetPlugin(plugin, "res/BallisticENV.svg")));
+
 	
 	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(75, 40), module, BallisticENV::IMPULSE_PARAM, 0.0, 1.0, 0.5 ));		
 	addParam(ParamWidget::create<KorgSmallGreyKnob>(Vec(40, 48), module, BallisticENV::IMPULSE_MOD_PARAM, 0.0, 1.0, 0.0 ));		
@@ -93,7 +88,7 @@ BallisticENVWidget::BallisticENVWidget(BallisticENV *module) : ModuleWidget(modu
 	addOutput(Port::create<PJ301MPort>(Vec(45, 320), Port::OUTPUT, module, BallisticENV::C_OUTPUT));
 	addOutput(Port::create<PJ301MPort>(Vec(80, 320), Port::OUTPUT, module, BallisticENV::ZERO_TRIG_OUTPUT));
 
-	
-}
+	}	
+};
 
 Model *modelBallisticENV = Model::create<BallisticENV, BallisticENVWidget>("NonLinearInstruments", "BallisticENV", "Ballistic ENV", ENVELOPE_GENERATOR_TAG);

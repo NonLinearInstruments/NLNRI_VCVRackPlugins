@@ -46,23 +46,17 @@ void LuciControlRND::step() {
 
 }
 
-struct LuciControlRNDWidget : ModuleWidget { LuciControlRNDWidget(LuciControlRND *module); };
-
-LuciControlRNDWidget::LuciControlRNDWidget(LuciControlRND *module) : ModuleWidget(module) {
-	box.size = Vec(25 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT);
-
-	{
-		SVGPanel *panel = new SVGPanel();
-		panel->box.size = box.size;
-		panel->setBackground(SVG::load(assetPlugin(plugin, "res/LuciControlRND.svg")));
-		addChild(panel);
-	}
+struct LuciControlRNDWidget : ModuleWidget { 
+	LuciControlRNDWidget(LuciControlRND *module) : ModuleWidget(module) {
+	setPanel(SVG::load(assetPlugin(plugin, "res/LuciControlRND.svg")));
+		
 
 	addParam(ParamWidget::create<BigLuciButton>(Vec(35, 55), module, LuciControlRND::RANDOMIZE_PARAM, 0.0, 1.0, 0.0));
 	addChild(ModuleLightWidget::create<luciLight<BlueLight>>(Vec(40, 60), module, LuciControlRND::RANDOMIZE_LIGHT));
 	addOutput(Port::create<PJ301MPort>(Vec(344, 172), Port::OUTPUT, module, LuciControlRND::RANDOMIZE_OUTPUT));
 	addInput(Port::create<PJ3410Port>(Vec(2, 172), Port::INPUT, module, LuciControlRND::RANDOMIZE_INPUT));
 
-}
+	}
+};
 
 Model *modelLuciControlRND = Model::create<LuciControlRND, LuciControlRNDWidget>("NonLinearInstruments", "LuciControlRND", "Luci Ctrl RAND", CONTROLLER_TAG);

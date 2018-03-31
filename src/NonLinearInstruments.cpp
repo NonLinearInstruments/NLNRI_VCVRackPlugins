@@ -4,7 +4,7 @@
 // The plugin-wide instance of the Plugin class
 Plugin *plugin;
 
-void init(rack::Plugin *p) {
+void init(Plugin *p) {
 	plugin = p;
 	// This is the unique identifier for your plugin
 	p->slug = TOSTRING(SLUG);
