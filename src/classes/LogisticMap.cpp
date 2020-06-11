@@ -25,37 +25,37 @@ struct logisticMap {
 	
 	
 	void setCmod_depth_param(float _value){
-	CmodDepthParam = _value / 10.;
-	CmodDepthParam *= CmodDepthParam;;
+		CmodDepthParam = _value / 10.;
+		CmodDepthParam *= CmodDepthParam;;
 	}
 	
 	
 	void setCmod_value(float _value){
-	CmodValue = _value * CmodDepthParam;
+		CmodValue = _value * CmodDepthParam;
 	}
 
 
 	void setCvalue(float _value){
-	Cvalue = _value * Crange;
+		Cvalue = _value * Crange;
 	}
 
 	
 	void setCvalueFine(float _value){
-	CvalueFine = _value * CrangeFine;
+		CvalueFine = _value * CrangeFine;
 	}
 
 
 	void process (){
-	CmodValue = CmodValue * (Cmax - Cvalue);
-	Cparam = clamp ( Cmin + Cvalue + CvalueFine + CmodValue, Cmin , Cmax );
-	axnew = Cparam * ax * ( 1.f - ax );
-	output = std::isfinite( axnew ) ? 5. * axnew : 0.f;
-	ax = axnew;	
+		CmodValue = CmodValue * (Cmax - Cvalue);
+		Cparam = clamp ( Cmin + Cvalue + CvalueFine + CmodValue, Cmin , Cmax );
+		axnew = Cparam * ax * ( 1.f - ax );
+		output = std::isfinite( axnew ) ? 5. * axnew : 0.f;
+		ax = axnew;	
 	}
 
 
 	float getAudio () {
-	return output;
+		return output;
 	}
 
 

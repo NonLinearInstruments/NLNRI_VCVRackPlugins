@@ -1,10 +1,9 @@
 #include "rack.hpp"
 
-
 using namespace rack;
 
 
-extern Plugin *plugin;
+extern Plugin *pluginInstance;
 
 ////////////////////
 // module widgets
@@ -30,7 +29,7 @@ struct LuciVeryLargeBlueKnob : SVGKnob {
 	LuciVeryLargeBlueKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		setSVG( SVG::load(assetPlugin(plugin, "res/LuciVeryLargeBlueKnob.svg")) );
+		setSvg( APP->window->loadSvg(asset::plugin(pluginInstance, "res/LuciVeryLargeBlueKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -41,7 +40,7 @@ struct KorgLargeGoldKnob : SVGKnob {
 	KorgLargeGoldKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		setSVG( SVG::load(assetPlugin(plugin, "res/KorgLargeGoldKnob.svg")) );
+		setSvg( APP->window->loadSvg(asset::plugin(pluginInstance, "res/KorgLargeGoldKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -51,7 +50,7 @@ struct KorgLargeBlueKnob : SVGKnob {
 	KorgLargeBlueKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		setSVG( SVG::load(assetPlugin(plugin, "res/KorgLargeBlueKnob.svg")) );
+		setSvg( APP->window->loadSvg(asset::plugin(pluginInstance, "res/KorgLargeBlueKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -61,7 +60,7 @@ struct KorgLargeGreyKnob : SVGKnob {
 	KorgLargeGreyKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		setSVG( SVG::load(assetPlugin(plugin, "res/KorgLargeGreyKnob.svg")) );
+		setSvg( APP->window->loadSvg(asset::plugin(pluginInstance, "res/KorgLargeGreyKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -72,7 +71,7 @@ struct KorgMedGoldKnob : SVGKnob {
 	KorgMedGoldKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		setSVG( SVG::load(assetPlugin(plugin, "res/KorgMedGoldKnob.svg")) );
+		setSvg( APP->window->loadSvg(asset::plugin(pluginInstance, "res/KorgMedGoldKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -83,7 +82,7 @@ struct KorgMedGreyKnob : SVGKnob {
 	KorgMedGreyKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		setSVG( SVG::load(assetPlugin(plugin, "res/KorgMedGreyKnob.svg")) );
+		setSvg( APP->window->loadSvg(asset::plugin(pluginInstance, "res/KorgMedGreyKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
@@ -93,29 +92,29 @@ struct KorgSmallGreyKnob : SVGKnob {
 	KorgSmallGreyKnob() {
         minAngle = -0.83 * M_PI;
 		maxAngle = 0.83 * M_PI;
-		setSVG( SVG::load(assetPlugin(plugin, "res/KorgSmallGreyKnob.svg")) );
+		setSvg( APP->window->loadSvg(asset::plugin(pluginInstance, "res/KorgSmallGreyKnob.svg")) );
 		sw->wrap();
 		box.size = sw->box.size;
 	}
 };
 
-struct KorgCKSS : SVGSwitch, ToggleSwitch {
+struct KorgCKSS : SVGSwitch /*, ToggleSwitch*/ {
 	KorgCKSS() {
-		addFrame(SVG::load(assetPlugin(plugin,"res/KorgCKSS_0.svg")));
-		addFrame(SVG::load(assetPlugin(plugin,"res/KorgCKSS_1.svg")));
+		addFrame(APP->window->loadSvg(asset::plugin(pluginInstance,"res/KorgCKSS_0.svg")));
+		addFrame(APP->window->loadSvg(asset::plugin(pluginInstance,"res/KorgCKSS_1.svg")));
 	}
 };
 
-struct LuciControlRandomizeButton : SVGSwitch, MomentarySwitch {
+struct LuciControlRandomizeButton : SVGSwitch /*, MomentarySwitch*/ {
 	LuciControlRandomizeButton() {
-		addFrame(SVG::load(assetPlugin(plugin, "res/LuciControlRandomizeButton.svg")));
-			}
-		};
+		addFrame(APP->window->loadSvg(asset::plugin(pluginInstance, "res/LuciControlRandomizeButton.svg")));
+	}
+};
 
 
-struct BigLuciButton : SVGSwitch, MomentarySwitch {
+struct BigLuciButton : SVGSwitch /*, MomentarySwitch*/ {
 	BigLuciButton() {
-		addFrame(SVG::load(assetPlugin(plugin, "res/BigLEDButton.svg")));
+		addFrame(APP->window->loadSvg(asset::plugin(pluginInstance, "res/BigLEDButton.svg")));
 	}
 };
 

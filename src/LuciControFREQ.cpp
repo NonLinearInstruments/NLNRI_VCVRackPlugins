@@ -17,30 +17,31 @@ struct LuciControlFREQ : Module {
 		NUM_LIGHTS
 	};
 
-	LuciControlFREQ() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
-	void step() override;
+	LuciControlFREQ() {
+		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+		configParam(FREQUENCY_PARAM, 0.0, 8.0, 1.0);
+	}
+	void process(const ProcessArgs& args) override;
 
 	// For more advanced Module features, read Rack's engine.hpp header file
-	// - toJson, fromJson: serialization of internal data
+	// - dataToJson, dataFromJson: serialization of internal data
 	// - onSampleRateChange: event triggered by a change of sample rate
 	// - reset, randomize: implements special behavior when user clicks these from the context menu
 };
 
-void LuciControlFREQ::step() {
-
-		outputs[FREQUENCY_OUTPUT].value = params[FREQUENCY_PARAM].value + params[FREQUENCY_INPUT].value;
-
+void LuciControlFREQ::process(const ProcessArgs& args) {
+	outputs[FREQUENCY_OUTPUT].setVoltage(params[FREQUENCY_PARAM].getValue() + params[FREQUENCY_INPUT].getValue());
 }
 
 struct LuciControlFREQWidget : ModuleWidget { 
-	LuciControlFREQWidget(LuciControlFREQ *module) : ModuleWidget(module) {
-	setPanel(SVG::load(assetPlugin(plugin, "res/LuciControlFREQ.svg")));
-		
-	addParam(ParamWidget::create<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlFREQ::FREQUENCY_PARAM, 0.0, 8.0, 1. ));
-	addOutput(Port::create<PJ301MPort>(Vec(344, 172), Port::OUTPUT, module, LuciControlFREQ::FREQUENCY_OUTPUT));
-	addInput(Port::create<PJ3410Port>(Vec(2, 172), Port::INPUT, module, LuciControlFREQ::FREQUENCY_INPUT));
+	LuciControlFREQWidget(LuciControlFREQ *module) {
+		setModule(module);
+		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/LuciControlFREQ.svg")));
 
+		addParam(createParam<LuciVeryLargeBlueKnob>(Vec(40, 55), module, LuciControlFREQ::FREQUENCY_PARAM));
+		addOutput(createOutput<PJ301MPort>(Vec(344, 172), module, LuciControlFREQ::FREQUENCY_OUTPUT));
+		addInput(createInput<PJ3410Port>(Vec(2, 172), module, LuciControlFREQ::FREQUENCY_INPUT));
 	}
 };
 
-Model *modelLuciControlFREQ = Model::create<LuciControlFREQ, LuciControlFREQWidget>("NonLinearInstruments", "LuciControlFREQ", "Luci Ctrl FREQ", CONTROLLER_TAG);
+Model *modelLuciControlFREQ = createModel<LuciControlFREQ, LuciControlFREQWidget>("LuciControlFREQ");
