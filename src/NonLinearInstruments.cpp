@@ -1,16 +1,11 @@
 #include "NonLinearInstruments.hpp"
 
 
-// The plugin-wide instance of the Plugin class
-Plugin *plugin;
+// The pluginInstance-wide instance of the Plugin class
+Plugin *pluginInstance;
 
 void init(Plugin *p) {
-	plugin = p;
-	// This is the unique identifier for your plugin
-	p->slug = TOSTRING(SLUG);
-	p->version = TOSTRING(VERSION);
-	p->website = "https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins";
-	p->manual = "https://github.com/NonLinearInstruments/NLNRI_VCVRackPlugins/blob/master/README.md";
+	pluginInstance = p;
 
 	// For each module, specify the ModuleWidget subclass, manufacturer slug (for saving in patches), manufacturer human-readable name, module slug, and module name
 	p->addModel(modelQU4DiT);
@@ -23,6 +18,6 @@ void init(Plugin *p) {
 	p->addModel(modelLuciControlINFcoarse);
 	//p->addModel(modelLuciControlINFfine);
 
-	// Any other plugin initialization may go here.
+	// Any other pluginInstance initialization may go here.
 	// As an alternative, consider lazy-loading assets and lookup tables when your module is created to reduce startup times of Rack.
 }

@@ -40,28 +40,31 @@ struct LuciCell : Module {
 	float lightLambda = 0.025;
 	float resetLight = 0.0;
 
-	LuciCell() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
-	void step() override;
+	LuciCell() {
+		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+		configParam(RESET_PARAM, 0.0, 1.0, 0.0);
+	}
+	void process(const ProcessArgs& args) override;
 
 	// For more advanced Module features, read Rack's engine.hpp header file
-	// - toJson, fromJson: serialization of internal data
+	// - dataToJson, dataFromJson: serialization of internal data
 	// - onSampleRateChange: event triggered by a change of sample rate
 	// - reset, randomize: implements special behavior when user clicks these from the context menu
 };
 
-void LuciCell::step() {
+void LuciCell::process(const ProcessArgs& args) {
 
 	// receive neighbour cells triggers
 	MyLuci.setTriggers(
-		inputs[NORTH_INPUT].value,
-		inputs[EAST_INPUT].value,
-		inputs[SOUTH_INPUT].value,
-		inputs[WEST_INPUT].value
-		);
+		inputs[NORTH_INPUT].getVoltage(),
+		inputs[EAST_INPUT].getVoltage(),
+		inputs[SOUTH_INPUT].getVoltage(),
+		inputs[WEST_INPUT].getVoltage()
+	);
 	// randomize function
-	MyLuci.randomize(inputs[RND_INPUT].value);
+	MyLuci.randomize(inputs[RND_INPUT].getVoltage());
 	// adjust frequency with 1v/oct
-	float gotFreq = inputs[FREQ_INPUT].value;
+	float gotFreq = inputs[FREQ_INPUT].getVoltage();
 	MyLuci.setFrequency(gotFreq);
 	// ... and lightLambda acordingly
 	// here 60 is supposed to be screen refresh frequency
@@ -72,51 +75,51 @@ void LuciCell::step() {
 	//}
 
 	// adjust influence +/-5v
-	MyLuci.setInfluence(inputs[INFLUENCE_INPUT].value);
+	MyLuci.setInfluence(inputs[INFLUENCE_INPUT].getVoltage());
 	// run the cell
 	audioOut = MyLuci.process();
 	// get audio signal
-	outputs[XN_OUTPUT].value = std::isfinite(audioOut) ? audioOut : 0.f;
+	outputs[XN_OUTPUT].setVoltage(std::isfinite(audioOut) ? audioOut : 0.f);
 	// feed outputs with the same internal own cell's trigger
 	bool gotLuciTrigger = MyLuci.getLuciTrigger();
-	outputs[NORTH_TRIG_OUT].value =
-	outputs[EAST_TRIG_OUT].value =
-	outputs[SOUTH_TRIG_OUT].value =
-	outputs[WEST_TRIG_OUT].value = gotLuciTrigger;
+	outputs[NORTH_TRIG_OUT].setVoltage(gotLuciTrigger);
+	outputs[EAST_TRIG_OUT].setVoltage(gotLuciTrigger);
+	outputs[SOUTH_TRIG_OUT].setVoltage(gotLuciTrigger);
+	outputs[WEST_TRIG_OUT].setVoltage(gotLuciTrigger);
 
 
 	// Reset thru button or own luci trigger
-	if (params[RESET_PARAM].value > 0 || gotLuciTrigger ) {
+	if (params[RESET_PARAM].getValue() > 0 || gotLuciTrigger ) {
 		resetLight = 1.0;
 		MyLuci.resetLuci();
 	}
-	resetLight -= resetLight / lightLambda / engineGetSampleRate();
+	resetLight -= resetLight / lightLambda / args.sampleRate;
 	lights[RESET_LIGHT].value = resetLight;
-
 }
 
 struct LuciCellWidget : ModuleWidget { 
-	
-	LuciCellWidget(LuciCell *module) : ModuleWidget(module) {
-	setPanel(SVG::load(assetPlugin(plugin, "res/LuciCell.svg")));
+	LuciCellWidget(LuciCell *module) {
+		setModule(module);
+		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/LuciCell.svg")));
+
+		addOutput(createOutput<PJ301MPort>(Vec(2, 2), module, LuciCell::XN_OUTPUT));
+		addOutput(createOutput<PJ301MPort>(Vec(2, 210), module, LuciCell::NORTH_TRIG_OUT));
+		addOutput(createOutput<PJ301MPort>(Vec(210, 2), module, LuciCell::WEST_TRIG_OUT));
+		addOutput(createOutput<PJ301MPort>(Vec(210, 344), module, LuciCell::EAST_TRIG_OUT));
+		addOutput(createOutput<PJ301MPort>(Vec(344, 210), module, LuciCell::SOUTH_TRIG_OUT));
+
+		addInput(createInput<PJ3410Port>(Vec(2, 162), module, LuciCell::NORTH_INPUT));
+		addInput(createInput<PJ3410Port>(Vec(2, 344), module, LuciCell::FREQ_INPUT));
+		addInput(createInput<PJ3410Port>(Vec(162, 2), module, LuciCell::WEST_INPUT));
+		addInput(createInput<PJ3410Port>(Vec(162, 344), module, LuciCell::EAST_INPUT));
+		addInput(createInput<PJ3410Port>(Vec(344, 2), module, LuciCell::INFLUENCE_INPUT));
+		addInput(createInput<PJ3410Port>(Vec(344, 162), module, LuciCell::SOUTH_INPUT));
+		addInput(createInput<PJ3410Port>(Vec(344, 344), module, LuciCell::RND_INPUT));
+
+		addParam(createParam<BigLuciButton>(Vec(35, 35), module, LuciCell::RESET_PARAM));
 		
-	addOutput(Port::create<PJ301MPort>(Vec(2, 2), Port::OUTPUT, module, LuciCell::XN_OUTPUT));
-	addOutput(Port::create<PJ301MPort>(Vec(2, 210), Port::OUTPUT, module, LuciCell::NORTH_TRIG_OUT));
-	addOutput(Port::create<PJ301MPort>(Vec(210, 2), Port::OUTPUT, module, LuciCell::WEST_TRIG_OUT));
-	addOutput(Port::create<PJ301MPort>(Vec(210, 344), Port::OUTPUT, module, LuciCell::EAST_TRIG_OUT));
-	addOutput(Port::create<PJ301MPort>(Vec(344, 210), Port::OUTPUT, module, LuciCell::SOUTH_TRIG_OUT));
-
-	addInput(Port::create<PJ3410Port>(Vec(2, 162), Port::INPUT, module, LuciCell::NORTH_INPUT));
-	addInput(Port::create<PJ3410Port>(Vec(2, 344), Port::INPUT, module, LuciCell::FREQ_INPUT));
-	addInput(Port::create<PJ3410Port>(Vec(162, 2), Port::INPUT, module, LuciCell::WEST_INPUT));
-	addInput(Port::create<PJ3410Port>(Vec(162, 344), Port::INPUT, module, LuciCell::EAST_INPUT));
-	addInput(Port::create<PJ3410Port>(Vec(344, 2), Port::INPUT, module, LuciCell::INFLUENCE_INPUT));
-	addInput(Port::create<PJ3410Port>(Vec(344, 162), Port::INPUT, module, LuciCell::SOUTH_INPUT));
-	addInput(Port::create<PJ3410Port>(Vec(344, 344), Port::INPUT, module, LuciCell::RND_INPUT));
-
-	addParam(ParamWidget::create<BigLuciButton>(Vec(35, 35), module, LuciCell::RESET_PARAM, 0.0, 1.0, 0.0));
-	addChild(ModuleLightWidget::create<luciLight<BlueLight>>(Vec(40, 40), module, LuciCell::RESET_LIGHT));
+		addChild(createLight<luciLight<BlueLight>>(Vec(40, 40), module, LuciCell::RESET_LIGHT));
 	}
 };
 
-Model *modelLuciCell = Model::create<LuciCell, LuciCellWidget>("NonLinearInstruments", "LuciCell", "Luci Cell", OSCILLATOR_TAG);
+Model *modelLuciCell = createModel<LuciCell, LuciCellWidget>("LuciCell");

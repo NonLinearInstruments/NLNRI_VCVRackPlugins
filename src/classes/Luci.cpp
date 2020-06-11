@@ -1,5 +1,6 @@
 #pragma once
-#include "dsp/digital.hpp"
+//#include "dsp/digital.hpp"
+
 namespace rack {
 
 //  Base class for Luci
@@ -17,7 +18,7 @@ struct luciCell {
 	float phase = (rand() % 100) / 100.f; // start with random phase
 	
 	// integration
-	float delta = frequency / engineGetSampleRate();
+	float delta = frequency / APP->engine->getSampleRate();
 	
 	// this is for the standard vcv trigger
 	//PulseGenerator trigOut;
@@ -49,7 +50,7 @@ struct luciCell {
 		if( _rnd_trig ){
 			phase = (rand() % 100) / 100.f;
 			randomizedStatus = true;
-			} else { randomizedStatus = false; }
+		} else { randomizedStatus = false; }
 	}
 	
 	// shoot triggers out and reset phase
@@ -61,7 +62,7 @@ struct luciCell {
 	
 	float process(){
 		// find increment per sample
-		delta = frequency / engineGetSampleRate();
+		delta = frequency / APP->engine->getSampleRate();
 		
 		// prepare trigOut signal
 		// trigOutValue = 10.f * (float) trigOut.process(delta);
@@ -78,9 +79,9 @@ struct luciCell {
 		// avoid random noise to slip thru output while randomize button is pressed
 		if( randomizedStatus ){ 
 			return( 0.f );
-			} else {
+		} else {
 			return( ( 10.f * phase ) - 5.f );
-			}
+		}
 	}
 	
 	// extract trigger values

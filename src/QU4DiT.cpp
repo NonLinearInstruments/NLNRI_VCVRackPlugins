@@ -46,47 +46,51 @@ struct QU4DiT : Module {
 	float CmodValue = 0.0;
 	float CmodDepthParam = 0.0;
 
-	QU4DiT() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {}
-	void step() override;
+	QU4DiT() {
+		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+		configParam(C_PARAM, 0.0, 1.0, 0.5);
+		configParam(C_OFFSET, 0.0, 1.0, 0.0);
+		configParam(CMOD_DEPTH, 0.0, 1.0, 0.0);
+	}
+	void process(const ProcessArgs& args) override;
 
 	// For more advanced Module features, read Rack's engine.hpp header file
-	// - toJson, fromJson: serialization of internal data
+	// - dataToJson, dataFromJson: serialization of internal data
 	// - onSampleRateChange: event triggered by a change of sample rate
 	// - reset, randomize: implements special behavior when user clicks these from the context menu
 };
 
 
-void QU4DiT::step() {
-	CmodDepthParam = clamp ( params[CMOD_DEPTH].value, 0.f, 1.f );
-	CmodValue = clamp ( inputs[CMOD_INPUT].value / 5.f , -1.f, 1.f ) * CmodDepthParam * .025f;
-	Cvalue =  C_range * clamp ( params[C_PARAM].value, 0.f, 1.f );
+void QU4DiT::process(const ProcessArgs& args) {
+	CmodDepthParam = clamp ( params[CMOD_DEPTH].getValue(), 0.f, 1.f );
+	CmodValue = clamp ( inputs[CMOD_INPUT].getVoltage() / 5.f , -1.f, 1.f ) * CmodDepthParam * .025f;
+	Cvalue =  C_range * clamp ( params[C_PARAM].getValue(), 0.f, 1.f );
 	Cparam = clamp ( Cmin + Cvalue + CmodValue, Cmin , Cmax );
-	Coffset = Off_range * clamp ( params[C_OFFSET].value, 0.f, 1.f );
+	Coffset = Off_range * clamp ( params[C_OFFSET].getValue(), 0.f, 1.f );
 	axnew = Cparam * ax * ( 1.f - ax );
 	aynew = ( Cparam + Coffset ) * ay * ( 1.f - ay );
 	Xout = axnew * 10.f - 5.f;
 	y_out = aynew * 10.f - 5.f;
-	outputs[XN_OUTPUT].value = std::isfinite(Xout) ? Xout : 0.f;
-	outputs[YN_OUTPUT].value = std::isfinite(y_out) ? y_out : 0.f;
+	outputs[XN_OUTPUT].setVoltage(std::isfinite(Xout) ? Xout : 0.f);
+	outputs[YN_OUTPUT].setVoltage(std::isfinite(y_out) ? y_out : 0.f);
 	ax = axnew;
 	ay = aynew;
 }
 
 struct QU4DiTWidget : ModuleWidget { 
+	QU4DiTWidget(QU4DiT *module) {
+		setModule(module);
+		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/QU4DiT.svg")));
 
-QU4DiTWidget(QU4DiT *module) : ModuleWidget(module) {
-	setPanel(SVG::load(assetPlugin(plugin, "res/QU4DiT.svg")));
-			
-	addParam(ParamWidget::create<KorgLargeGoldKnob>(Vec(17, 58), module, QU4DiT::C_PARAM, 0.0, 1.0, 0.5 ));
-	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(26, 140), module, QU4DiT::C_OFFSET, 0.0, 1.0, 0.0));
-	addParam(ParamWidget::create<KorgMedGreyKnob>(Vec(26, 200), module, QU4DiT::CMOD_DEPTH, 0.0, 1.0, 0.0));
-	
-	addInput(Port::create<PJ301MPort>(Vec(32, 260), Port::INPUT, module, QU4DiT::CMOD_INPUT));
+		addParam(createParam<KorgLargeGoldKnob>(Vec(17, 58), module, QU4DiT::C_PARAM));
+		addParam(createParam<KorgMedGreyKnob>(Vec(26, 140), module, QU4DiT::C_OFFSET));
+		addParam(createParam<KorgMedGreyKnob>(Vec(26, 200), module, QU4DiT::CMOD_DEPTH));
 
-	addOutput(Port::create<PJ301MPort>(Vec(15, 310), Port::OUTPUT, module, QU4DiT::XN_OUTPUT));
-	addOutput(Port::create<PJ301MPort>(Vec(50, 310), Port::OUTPUT, module, QU4DiT::YN_OUTPUT));
+		addInput(createInput<PJ301MPort>(Vec(32, 260), module, QU4DiT::CMOD_INPUT));
 
+		addOutput(createOutput<PJ301MPort>(Vec(15, 310), module, QU4DiT::XN_OUTPUT));
+		addOutput(createOutput<PJ301MPort>(Vec(50, 310), module, QU4DiT::YN_OUTPUT));
 	}
 };
 
-Model *modelQU4DiT = Model::create<QU4DiT, QU4DiTWidget>("NonLinearInstruments", "QUADiT", "Quadratic Iterator", OSCILLATOR_TAG);
+Model *modelQU4DiT = createModel<QU4DiT, QU4DiTWidget>("QU4DiT");
