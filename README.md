@@ -1,5 +1,6 @@
 <h1>NLNRI_VCVRackPlugins</h1>
 <p>Nonlinear instruments as VCV Rack plugins<br/></p>
+<p>Special thanks to <a href="https://github.com/dizzisound">Daniele Zerbini</a> for the upgrade to VCV Rack version 1.0>/p>
 
 <table width="100%"><tr><td><h3>Luci modules and Luci8x8 example patch</h3></td></tr>
   <tr><td>
